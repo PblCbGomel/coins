@@ -9,7 +9,7 @@ export function ProfileInfo() {
       />
       <div className="nickname">Иван Алексеев</div>
       <button className="change-theme-btn">
-        <img src="./buttons/moon.png" width={20} height={20} />
+        <img alt="moon" src="./buttons/moon.png" width={20} height={20} />
       </button>
     </div>
   );

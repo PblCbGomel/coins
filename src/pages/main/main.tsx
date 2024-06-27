@@ -13,7 +13,12 @@ export function MainPage() {
           <div className="ticket-info">
             <p className="ticket-header">Your tickets</p>
             <div className="tickets-count">
-              <img src="./icons/ticket.png" width={19} height={13} />
+              <img
+                alt="ticket"
+                src="./icons/ticket.png"
+                width={19}
+                height={13}
+              />
               <p>27</p>
             </div>
           </div>
