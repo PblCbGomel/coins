@@ -1,0 +1,140 @@
+.main-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 13px 0;
+
+  height: 100%;
+  justify-content: space-between;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.profile-info {
+  width: 90%;
+  padding: 24px 28px;
+  background-color: white;
+  border-radius: 25px;
+  height: 114px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 15px 20px #00000005;
+}
+
+.change-theme-btn {
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  border: none;
+  outline: inherit;
+}
+
+.nickname {
+  font-weight: 700;
+  color: black;
+  width: 60%;
+}
+
+.coins-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.coins-count {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+}
+
+.main-info {
+  background-image: url(../../../public//backgrounds/main-back.png);
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 16px;
+  height: 50%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.game {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-header {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.tickets-count {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.game-btn {
+  border: none;
+  outline: inherit;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  width: 66px;
+  height: 44px;
+  box-shadow: 0 10px 20px #df7e5220;
+  background-color: white;
+}
+
+.bar {
+  width: 90%;
+  background-color: #282828;
+  border-radius: 28px;
+  height: 60px;
+  position: relative;
+}
+
+.progress {
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+  height: 60px;
+  background: linear-gradient(90.01deg, #993902 0.01%, #df7e51 99.99%);
+}
+
+.farming {
+  position: absolute;
+  color: #ffffff60;
+  font-size: 16px;
+  top: 30%;
+  left: 35%;
+}
+
+.time {
+  position: absolute;
+  color: #ffffff40;
+  top: 35%;
+  right: 5%;
+  font-size: 12px;
+}

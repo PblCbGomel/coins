@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { MainPage } from "./pages/main/main";
+import { FriendsPage } from "./pages/friends/friends";
+import { UpgradesPage } from "./pages/upgrades/upgrades";
+import { TasksPage } from "./pages/tasks/tasks";
+import { NavigationMenu } from "./components/navigation/navigation";
+
+export const tg = window.Telegram.WebApp;
 
 function App() {
+  useEffect(() => {
+    tg.ready();
+    tg.expand();
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Routes>
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/upgrades" element={<UpgradesPage />} />
+          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/friends" element={<FriendsPage />} />
+          <Route path="*" element={<Navigate to="/main" replace />} />
+        </Routes>
+
+        <NavigationMenu />
+      </div>
+    </BrowserRouter>
   );
 }
 
