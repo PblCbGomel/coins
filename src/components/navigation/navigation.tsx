@@ -18,7 +18,7 @@ export function NavigationMenu() {
             className={({ isActive }) => (isActive ? "active" : "innactive")}
           >
             <div className="btn">
-              <img alt={route.text} src={route.icon} />
+              <img alt={route.text} src={route.icon} width={25} height={25} />
               <div className="text">{route.text}</div>
             </div>
           </NavLink>
