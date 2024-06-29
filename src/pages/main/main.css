@@ -37,10 +37,18 @@
   outline: inherit;
 }
 
-.nickname {
-  font-weight: 700;
-  color: black;
+.profile-text {
   width: 50%;
+}
+
+.profile-text .nickname {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.profile-text .id {
+  color: #bfbfbf;
+  font-size: 14px;
 }
 
 .coins-wrapper {
@@ -57,6 +65,14 @@
   line-height: 38px;
 }
 
+.main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+  width: 100%;
+}
+
 .main-info {
   background-image: url(../../../public//backgrounds/main-back.png);
   background-repeat: no-repeat;
@@ -68,11 +84,11 @@
   justify-content: end;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
 }
 
 .game {
-  width: 80%;
+  width: 85%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,7 +126,7 @@
 }
 
 .bar {
-  width: 90%;
+  width: 97%;
   background-color: #282828;
   border-radius: 28px;
   height: 60px;
@@ -130,6 +146,7 @@
   font-size: 16px;
   top: 30%;
   left: 35%;
+  font-weight: 700;
 }
 
 .time {

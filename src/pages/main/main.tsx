@@ -6,8 +6,10 @@ import { ProgressBar } from "./progress";
 export function MainPage() {
   return (
     <div className="main-page-wrapper">
-      <ProfileInfo />
-      <CoinsInfo />
+      <div className="main-header">
+        <ProfileInfo />
+        <CoinsInfo />
+      </div>
       <div className="main-info">
         <div className="game">
           <div className="ticket-info">
