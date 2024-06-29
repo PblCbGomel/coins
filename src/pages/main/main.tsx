@@ -17,7 +17,7 @@ export function MainPage() {
             <div className="tickets-count">
               <img
                 alt="ticket"
-                src="./icons/ticket.png"
+                src="./icons/ticket.svg"
                 width={19}
                 height={13}
               />

@@ -2,7 +2,7 @@ export function ProfileInfo() {
   return (
     <div className="profile-info">
       <img
-        src="./drafts/photo-main.png"
+        src="./drafts/photo-main.svg"
         width={66}
         height={66}
         className="image"
@@ -12,7 +12,7 @@ export function ProfileInfo() {
         <div className="id">id 666444333</div>
       </div>
       <button className="change-theme-btn">
-        <img alt="moon" src="./buttons/moon.png" width={20} height={20} />
+        <img alt="moon" src="./icons/moon.svg" width={20} height={20} />
       </button>
     </div>
   );

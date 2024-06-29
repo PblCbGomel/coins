@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import "./navigation.css";
 
 const Routing = [
-  { icon: "./navigation/home.png", text: "Home", url: "/main" },
-  { icon: "./navigation/upgrade.png", text: "Upgrade", url: "/upgrades" },
-  { icon: "./navigation/tasks.png", text: "Tasks", url: "/tasks" },
-  { icon: "./navigation/friends.png", text: "Friends", url: "/friends" },
+  { icon: "./navigation/home.svg", text: "Home", url: "/main" },
+  { icon: "./navigation/upgrade.svg", text: "Upgrade", url: "/upgrades" },
+  { icon: "./navigation/tasks.svg", text: "Tasks", url: "/tasks" },
+  { icon: "./navigation/friends.svg", text: "Friends", url: "/friends" },
 ];
 
 export function NavigationMenu() {
