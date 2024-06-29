@@ -123,6 +123,8 @@
   height: 44px;
   box-shadow: 0 10px 20px #df7e5220;
   background-color: white;
+  font-size: 16px;
+  color: black;
 }
 
 .bar {

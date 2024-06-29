@@ -1,0 +1,87 @@
+.tasks-wrapper {
+  display: flex;
+  height: calc(100% - 132px);
+  width: 100%;
+  flex-direction: column;
+  gap: 36px;
+  padding: 28px 0 0;
+}
+
+.tasks-header {
+  width: 100%;
+  padding: 0 32px;
+}
+
+.tasks-logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  height: 38px;
+}
+
+.tasks-list {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  gap: 13px;
+  max-height: 100%;
+  padding-bottom: 13px;
+}
+
+.task-card {
+  display: flex;
+  padding: 16px 20px 16px 22px;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  background-color: #ffffff;
+  border-radius: 25px;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.task-info p {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.task-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 92px;
+}
+
+.task-btn-disable,
+.task-btn-enable {
+  width: 92px;
+  height: 44px;
+  border-radius: 27.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: inherit;
+}
+
+.task-btn-enable {
+  background-color: #282828;
+  color: white;
+}
+
+.task-btn-disable {
+  color: #272727;
+  background-color: #f6f6f6;
+}
