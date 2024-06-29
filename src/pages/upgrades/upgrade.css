@@ -4,7 +4,7 @@
   width: 100%;
   flex-direction: column;
   gap: 36px;
-  padding-top: 28px;
+  padding: 28px 0 0;
 }
 
 .upgrade-header {
@@ -26,12 +26,12 @@
 
   font-weight: 700;
   font-size: 32px;
-  line-height: 38px;
+  line-height: 37.5px;
 }
 
 h2 {
   font-size: 32px;
-  line-height: 38px;
+  line-height: 37.5px;
 }
 
 .upgrade-list {
@@ -40,8 +40,9 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: top;
-  gap: 14px;
+  gap: 13px;
   max-height: 100%;
+  padding-bottom: 14px;
 }
 
 .card {
@@ -51,7 +52,7 @@ h2 {
   width: 90%;
   background-color: #ffffff;
   border-radius: 25px;
-  padding: 18px 20px 22px;
+  padding: 18px 20px;
 }
 
 .card-header {
@@ -64,10 +65,12 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-bottom: 4px;
 }
 
 .header-text h3 {
   font-size: 20px;
+  font-weight: 700;
 }
 
 .header-text p {
@@ -119,13 +122,15 @@ h2 {
 .cost {
   font-size: 16px;
   font-weight: 700;
+  color: #272727;
 }
 
 .upgrade-btn {
-  width: 100px;
+  width: 110px;
   height: 44px;
   background-color: #282828;
   border-radius: 27.5px;
   color: white;
   font-size: 16px;
+  line-height: 18.75px;
 }
