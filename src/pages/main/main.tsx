@@ -18,7 +18,7 @@ export function MainPage() {
             <div className="tickets-count">
               <img
                 alt="ticket"
-                src="./icons/ticket.svg"
+                src="./icons/ticket.png"
                 width={19}
                 height={13}
               />
@@ -26,7 +26,7 @@ export function MainPage() {
             </div>
           </div>
           <NavLink className="game-btn" to={"/friends"}>
-            Invite for <img src="./icons/ticket.svg" />
+            Invite for <img src="./icons/ticket.png" width={19} height={13} />
           </NavLink>
         </div>
         <ProgressBar />

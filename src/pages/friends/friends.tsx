@@ -20,7 +20,8 @@ export function FriendsPage() {
           </div>
           <div className="friends-coins-text">
             Score 10% from buddies +2.5% from their referrals Get a{" "}
-            <img src="./icons/ticket.svg" /> play pass for each frends
+            <img src="./icons/ticket.png" width={19} height={13} /> play pass
+            for each frends
           </div>
           <button className="friends-claim-btn">Claim in 06h 55m</button>
         </div>
