@@ -22,6 +22,7 @@ export function UpgradesPage() {
         {upgradesCards.map((card) => {
           return <UpgradeCard {...card} />;
         })}
+        <div className="empty-div"></div>
       </div>
     </div>
   );

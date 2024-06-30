@@ -14,7 +14,7 @@
 }
 
 .profile-info {
-  width: 90%;
+  width: 95%;
   padding: 24px 28px;
   background-color: white;
   border-radius: 25px;
@@ -121,7 +121,6 @@
   border-radius: 22px;
   width: 124px;
   height: 44px;
-  box-shadow: 0 10px 20px #df7e5220;
   background-color: #e8e8e8;
   font-size: 16px;
   color: black;

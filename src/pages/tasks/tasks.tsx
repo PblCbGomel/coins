@@ -17,6 +17,7 @@ export function TasksPage() {
         {taskCards.map((task) => {
           return <TaskCard {...task} />;
         })}
+        <div className="empty-div"></div>
       </div>
     </div>
   );

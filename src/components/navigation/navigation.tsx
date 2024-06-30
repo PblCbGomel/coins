@@ -18,7 +18,13 @@ export function NavigationMenu() {
             className={({ isActive }) => (isActive ? "active" : "innactive")}
           >
             <div className="btn">
-              <img alt={route.text} src={route.icon} width={25} height={25} />
+              <img
+                alt={route.text}
+                src={route.icon}
+                width={25}
+                height={25}
+                className={route.text.toLowerCase()}
+              />
               <div className="text">{route.text}</div>
             </div>
           </NavLink>

@@ -1,16 +1,16 @@
 .tasks-wrapper {
   display: flex;
-  height: calc(100% - 132px);
+  height: calc(100% - 119px);
   width: 100%;
   flex-direction: column;
-  gap: 36px;
+  gap: 33px;
   padding: 28px 0 0;
   overflow-y: scroll;
 }
 
 .tasks-header {
   width: 100%;
-  padding: 0 32px;
+  padding-left: 38px;
 }
 
 .tasks-logo {
@@ -99,4 +99,10 @@
 .task-btn-claim {
   background: linear-gradient(90deg, #9f3f09 0%, #dc7b4e 100%);
   color: white;
+}
+
+.empty-div {
+  height: 13px;
+  width: 100%;
+  padding: 13px 0 0 0;
 }

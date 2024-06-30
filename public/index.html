@@ -25,7 +25,25 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Coinsfarm</title>
+    <style>
+      .mobile-body {
+        overflow: hidden;
+        height: 100vh;
+      }
+      .mobile-wrap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .mobile-content {
+        height: calc(100% + 1px);
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

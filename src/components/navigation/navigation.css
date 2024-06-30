@@ -12,6 +12,9 @@ nav {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   box-shadow: 0px 0px 20px 0px #2828281a;
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
 }
 
 .btn {
@@ -33,4 +36,13 @@ nav {
 .active {
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+
+.active:active,
+.innactive:active {
+  appearance: none;
+}
+
+.upgrade {
+  transform: rotate(-90deg);
 }
