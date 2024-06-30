@@ -89,6 +89,12 @@
 .task-btn-enable {
   background-color: #282828;
   color: white;
+  transition: 0.2s;
+}
+
+.task-btn-enable:active {
+  background-color: black;
+  transition: 0.2s;
 }
 
 .task-btn-disable {
@@ -98,7 +104,13 @@
 
 .task-btn-claim {
   background: linear-gradient(90deg, #9f3f09 0%, #dc7b4e 100%);
+  transition: 0.2s;
   color: white;
+}
+
+.task-btn-claim:active {
+  background: linear-gradient(90deg, #9c3c05 0%, #9f3f09 100%);
+  transition: 0.2s;
 }
 
 .empty-div {
