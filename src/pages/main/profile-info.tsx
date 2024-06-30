@@ -3,15 +3,17 @@ import { NavLink } from "react-router-dom";
 export function ProfileInfo() {
   return (
     <div className="profile-info">
-      <img
-        src="./drafts/photo-main.svg"
-        width={66}
-        height={66}
-        className="image"
-      />
-      <div className="profile-text">
-        <div className="nickname">Иван Алексеев</div>
-        <div className="id">id 666444333</div>
+      <div className="profile-tg-info">
+        <img
+          src="./drafts/photo-main.svg"
+          width={66}
+          height={66}
+          className="image"
+        />
+        <div className="profile-text">
+          <div className="nickname">Иван Алексеев</div>
+          <div className="id">id 666444333</div>
+        </div>
       </div>
       <NavLink className="change-theme-btn" to={"/friends"}>
         <img

@@ -43,10 +43,6 @@
   transition: 0.2s;
 }
 
-.profile-text {
-  width: 50%;
-}
-
 .profile-text .nickname {
   font-size: 20px;
   font-weight: 500;
@@ -178,4 +174,11 @@
 .add-friend {
   opacity: 0.4;
   text-decoration: none;
+}
+
+.profile-tg-info {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  width: 80%;
 }
