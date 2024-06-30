@@ -5,8 +5,11 @@ import { FriendsPage } from "./pages/friends/friends";
 import { UpgradesPage } from "./pages/upgrades/upgrades";
 import { TasksPage } from "./pages/tasks/tasks";
 import { NavigationMenu } from "./components/navigation/navigation";
+import { postEvent } from "@tma.js/sdk";
 
 export const tg = window.Telegram.WebApp;
+
+postEvent("web_app_set_header_color", { color: "#f3f3f3" });
 
 function App() {
   useEffect(() => {
