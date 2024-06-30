@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 13px 0;
+  padding: 13px 0 16px;
 
   height: 100%;
   justify-content: space-between;
@@ -78,7 +78,6 @@
   background-repeat: no-repeat;
   background-size: 100% 80%;
   width: 100%;
-  padding: 16px;
   height: 50%;
   display: flex;
   justify-content: end;
@@ -128,17 +127,17 @@
 }
 
 .bar {
-  width: 97%;
+  width: 95%;
   background-color: #282828;
   border-radius: 28px;
-  height: 60px;
+  height: 55px;
   position: relative;
 }
 
 .progress {
   border-top-left-radius: 28px;
   border-bottom-left-radius: 28px;
-  height: 60px;
+  height: 100%;
   background: linear-gradient(90.01deg, #993902 0.01%, #df7e51 99.99%);
 }
 
@@ -147,7 +146,7 @@
   color: #ffffff60;
   font-size: 16px;
   top: 30%;
-  left: 35%;
+  left: 37%;
   font-weight: 700;
 }
 

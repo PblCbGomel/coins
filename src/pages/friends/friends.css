@@ -1,0 +1,155 @@
+.friend-wrapper {
+  display: flex;
+  height: calc(100% - 132px);
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 0 16px;
+}
+
+.friends-header {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.friends-header h2 {
+  padding-left: 39px;
+  font-size: 32px;
+  color: #272727;
+  font-weight: 700;
+}
+
+.friends-coins-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 23px 42px;
+  width: 95%;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.friends-coins {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.friends-coins p {
+  font-size: 32px;
+  font-weight: 700;
+  color: #272727;
+}
+
+.friends-coins-text {
+  text-align: center;
+  font-size: 14px;
+}
+
+.friends-claim-btn {
+  border: none;
+  outline: inherit;
+  background-color: #f6f6f6;
+  color: #aeaeae;
+  width: 158px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 27.5px;
+  font-size: 16px;
+}
+
+.friends-count-header {
+  display: flex;
+  width: 100%;
+}
+
+.friends-count-header h3 {
+  padding-left: 39px;
+  font-size: 24px;
+  color: #272727;
+  font-weight: 700;
+}
+
+.friends-list-wrapper {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 13px;
+  max-height: 100%;
+  padding-bottom: 13px;
+  width: 100%;
+}
+
+.friend-card {
+  width: 95%;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background-color: white;
+}
+
+.friend-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.friend-avatar {
+  border-radius: 50%;
+}
+
+.text-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.text-info h4 {
+  color: #272727;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.text-info p {
+  color: #272727;
+  font-size: 12px;
+}
+
+.friend-card-coins {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  color: #272727;
+  font-weight: 700;
+}
+
+.invite-btn-wrapper {
+  background-color: #f3f3f3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.invite-friend-btn {
+  border: none;
+  outline: inherit;
+  background-color: #282828;
+  color: white;
+  font-size: 16px;
+  border-radius: 27.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 55px;
+}
