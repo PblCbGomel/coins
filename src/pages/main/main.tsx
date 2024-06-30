@@ -2,6 +2,7 @@ import { CoinsInfo } from "./coins";
 import { ProfileInfo } from "./profile-info";
 import "./main.css";
 import { ProgressBar } from "./progress";
+import { NavLink } from "react-router-dom";
 
 export function MainPage() {
   return (
@@ -24,14 +25,9 @@ export function MainPage() {
               <p>27</p>
             </div>
           </div>
-          <button
-            className="game-btn"
-            onClick={() => {
-              window.location.href = "/friends";
-            }}
-          >
+          <NavLink className="game-btn" to={"/friends"}>
             Invite for <img src="./icons/ticket.svg" />
-          </button>
+          </NavLink>
         </div>
         <ProgressBar />
       </div>

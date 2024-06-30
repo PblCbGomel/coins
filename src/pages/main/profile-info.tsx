@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export function ProfileInfo() {
   return (
     <div className="profile-info">
@@ -11,12 +13,7 @@ export function ProfileInfo() {
         <div className="nickname">Иван Алексеев</div>
         <div className="id">id 666444333</div>
       </div>
-      <button
-        className="change-theme-btn"
-        onClick={() => {
-          window.location.href = "/friends";
-        }}
-      >
+      <NavLink className="change-theme-btn" to={"/friends"}>
         <img
           className="add-friend"
           alt="friend"
@@ -24,7 +21,7 @@ export function ProfileInfo() {
           width={16}
           height={16}
         />
-      </button>
+      </NavLink>
     </div>
   );
 }

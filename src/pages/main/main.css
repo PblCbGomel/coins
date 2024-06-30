@@ -125,6 +125,7 @@
   background-color: #e8e8e8;
   font-size: 16px;
   color: black;
+  text-decoration: none;
 }
 
 .bar {
@@ -165,4 +166,5 @@
 
 .add-friend {
   opacity: 0.4;
+  text-decoration: none;
 }
