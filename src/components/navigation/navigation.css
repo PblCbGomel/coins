@@ -14,7 +14,7 @@ nav {
   box-shadow: 0px 0px 20px 0px #2828281a;
   position: absolute;
   bottom: 0;
-  z-index: 2;
+  z-index: 100;
 }
 
 .btn {
