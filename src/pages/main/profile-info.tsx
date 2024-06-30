@@ -12,7 +12,13 @@ export function ProfileInfo() {
         <div className="id">id 666444333</div>
       </div>
       <button className="change-theme-btn">
-        <img alt="moon" src="./icons/moon.svg" width={20} height={20} />
+        <img
+          className="add-friend"
+          alt="friend"
+          src="./navigation/friends.svg"
+          width={16}
+          height={16}
+        />
       </button>
     </div>
   );

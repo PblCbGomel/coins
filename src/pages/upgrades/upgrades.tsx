@@ -7,7 +7,6 @@ export function UpgradesPage() {
     <div className="upgrade-wrapper">
       <div className="upgrade-header">
         <div className="logo">
-          <img src="./navigation/upgrade.svg" width={36} height={36} />
           <h2>Upgrade</h2>
         </div>
         <div className="coins">

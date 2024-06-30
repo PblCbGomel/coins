@@ -7,7 +7,6 @@ export function TasksPage() {
     <div className="tasks-wrapper">
       <div className="tasks-header">
         <div className="tasks-logo">
-          <img src="./icons/tasks.svg" width={32} height={32} />
           <h2>Tasks</h2>
         </div>
       </div>
