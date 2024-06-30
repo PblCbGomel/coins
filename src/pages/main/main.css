@@ -5,7 +5,7 @@
   width: 100%;
   padding: 13px 0 16px;
 
-  height: 100%;
+  height: calc(100% - 132px);
   justify-content: space-between;
 }
 
