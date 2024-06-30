@@ -15,7 +15,7 @@ export function FriendsPage() {
         </div>
         <div className="friends-coins-wrapper">
           <div className="friends-coins">
-            <img src="./icons/coin-main.svg" width={36} height={36} />
+            <img src="./icons/coin-main.png" width={36} height={36} />
             <p>1,241</p>
           </div>
           <div className="friends-coins-text">

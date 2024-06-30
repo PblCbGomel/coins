@@ -19,7 +19,7 @@ export function FriendCard({ avatar, nickname, coins }: Friend) {
         </div>
       </div>
       <div className="friend-card-coins">
-        {coins} <img src="./icons/coin-main.svg" width={20} height={20} />
+        {coins} <img src="./icons/coin-main.png" width={20} height={20} />
       </div>
     </div>
   );

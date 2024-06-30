@@ -10,7 +10,7 @@ export function UpgradesPage() {
           <h2>Upgrade</h2>
         </div>
         <div className="coins">
-          <img src="./icons/coin-main.svg" width={28} height={28} />
+          <img src="./icons/coin-main.png" width={28} height={28} />
           <p>18,778</p>
         </div>
       </div>
