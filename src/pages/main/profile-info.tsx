@@ -11,7 +11,12 @@ export function ProfileInfo() {
         <div className="nickname">Иван Алексеев</div>
         <div className="id">id 666444333</div>
       </div>
-      <button className="change-theme-btn">
+      <button
+        className="change-theme-btn"
+        onClick={() => {
+          window.location.href = "/friends";
+        }}
+      >
         <img
           className="add-friend"
           alt="friend"

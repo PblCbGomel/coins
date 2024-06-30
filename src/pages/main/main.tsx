@@ -24,7 +24,12 @@ export function MainPage() {
               <p>27</p>
             </div>
           </div>
-          <button className="game-btn">
+          <button
+            className="game-btn"
+            onClick={() => {
+              window.location.href = "/friends";
+            }}
+          >
             Invite for <img src="./icons/ticket.svg" />
           </button>
         </div>
