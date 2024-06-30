@@ -24,7 +24,9 @@ export function MainPage() {
               <p>27</p>
             </div>
           </div>
-          <button className="game-btn">Play!</button>
+          <button className="game-btn">
+            Invite for <img src="./icons/ticket.svg" />
+          </button>
         </div>
         <ProgressBar />
       </div>

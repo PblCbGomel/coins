@@ -29,6 +29,16 @@ export const taskCards: Task[] = [
   {
     taskHeader: "Watch YouTube video",
     taskText: "+100",
+    state: "claim",
+  },
+  {
+    taskHeader: "Watch YouTube video",
+    taskText: "+100",
+    state: "claim",
+  },
+  {
+    taskHeader: "Watch YouTube video",
+    taskText: "+100",
     state: "enable",
   },
   {

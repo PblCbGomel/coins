@@ -117,11 +117,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   border-radius: 22px;
-  width: 66px;
+  width: 124px;
   height: 44px;
   box-shadow: 0 10px 20px #df7e5220;
-  background-color: white;
+  background-color: #e8e8e8;
   font-size: 16px;
   color: black;
 }
@@ -132,6 +133,9 @@
   border-radius: 28px;
   height: 55px;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15%;
 }
 
 .progress {
@@ -142,20 +146,21 @@
 }
 
 .farming {
-  position: absolute;
   color: #ffffff60;
   font-size: 16px;
-  top: 30%;
-  left: 37%;
   font-weight: 700;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  text-align: center;
 }
 
 .time {
-  position: absolute;
   color: #ffffff40;
-  top: 35%;
-  right: 5%;
   font-size: 12px;
+  z-index: 1;
+  position: absolute;
+  right: 24px;
 }
 
 .add-friend {

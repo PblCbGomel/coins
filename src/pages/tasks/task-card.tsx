@@ -1,6 +1,6 @@
 import "./tasks.css";
 
-export type TaskState = "enable" | "disable" | "completed";
+export type TaskState = "enable" | "disable" | "completed" | "claim";
 
 export interface Task {
   taskHeader: string;
@@ -24,12 +24,8 @@ export function TaskCard({ taskHeader, taskText, state }: Task) {
             height={20}
           />
         ) : (
-          <button
-            className={
-              state === "enable" ? "task-btn-enable" : "task-btn-disable"
-            }
-          >
-            Claim!
+          <button className={"task-btn-" + state}>
+            {state === "enable" ? "Start" : "Claim!"}
           </button>
         )}
       </div>

@@ -10,6 +10,9 @@ export function TasksPage() {
           <h2>Tasks</h2>
         </div>
       </div>
+      <p className="tasks-info">
+        We will reward you immediately with coins after each task competition
+      </p>
       <div className="tasks-list">
         {taskCards.map((task) => {
           return <TaskCard {...task} />;

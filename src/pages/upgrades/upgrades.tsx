@@ -14,6 +14,10 @@ export function UpgradesPage() {
           <p>18,778</p>
         </div>
       </div>
+      <p className="upgrade-info">
+        To speed up the accumulation of coins, you can improve your mining
+        characteristics
+      </p>
       <div className="upgrade-list">
         {upgradesCards.map((card) => {
           return <UpgradeCard {...card} />;
