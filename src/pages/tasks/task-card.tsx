@@ -18,7 +18,7 @@ export function TaskCard({ taskHeader, taskText, state }: Task) {
       <div className="task-btn-wrapper">
         {state === "completed" ? (
           <img
-            src="./icons/completed.svg"
+            src="./icons/completed.png"
             alt="completed"
             width={20}
             height={20}
