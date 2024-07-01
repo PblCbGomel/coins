@@ -34,7 +34,10 @@ export function UpgradeCard({
         </div>
       </div>
       <div className="card-footer">
-        <p className="cost">{`${cost} CF`}</p>
+        <p className="cost">
+          <img src="./icons/coin-main.png" width={20} height={20} />
+          {`${cost}`}
+        </p>
         <button className="upgrade-btn">Upgrade!</button>
       </div>
     </div>
