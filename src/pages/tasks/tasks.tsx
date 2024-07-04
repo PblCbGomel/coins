@@ -14,8 +14,8 @@ export function TasksPage() {
         We will reward you immediately with coins after each task competition
       </p>
       <div className="tasks-list">
-        {taskCards.map((task) => {
-          return <TaskCard {...task} />;
+        {taskCards.map((task, index) => {
+          return <TaskCard key={task.taskHeader + index} {...task} />;
         })}
         <div className="empty-div"></div>
       </div>

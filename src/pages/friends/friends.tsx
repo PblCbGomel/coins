@@ -30,7 +30,7 @@ export function FriendsPage() {
           <h3>{frinedsCount} friends</h3>
         </div>
         {friendCards.map((friend) => {
-          return <FriendCard {...friend} />;
+          return <FriendCard key={friend.nickname} {...friend} />;
         })}
       </div>
       <div className="invite-btn-wrapper">

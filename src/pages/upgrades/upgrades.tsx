@@ -20,7 +20,7 @@ export function UpgradesPage() {
       </p>
       <div className="upgrade-list">
         {upgradesCards.map((card) => {
-          return <UpgradeCard {...card} />;
+          return <UpgradeCard key={card.headerMainText} {...card} />;
         })}
         <div className="empty-div"></div>
       </div>

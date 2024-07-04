@@ -9,7 +9,7 @@ export const friendCards: Friend[] = [
   {
     avatar: "./drafts/photo-main.svg",
     coins: "4,111",
-    nickname: "sSsuperrtrader111",
+    nickname: "sSsuperrtrader1112",
   },
   {
     avatar: "./drafts/photo-main.svg",
@@ -19,7 +19,7 @@ export const friendCards: Friend[] = [
   {
     avatar: "./drafts/photo-main.svg",
     coins: "2,781",
-    nickname: "Perchik_krasniy",
+    nickname: "Perchik_krasniy1",
   },
   {
     avatar: "./drafts/photo-main.svg",
