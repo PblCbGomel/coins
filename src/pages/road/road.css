@@ -1,0 +1,73 @@
+.road-wrapper {
+  display: flex;
+  height: calc(100% - 119px);
+  width: 100%;
+  flex-direction: column;
+  gap: 44px;
+  padding: 28px 0 0;
+  overflow-y: scroll;
+  align-items: center;
+}
+
+.road-header {
+  width: 100%;
+  padding-left: 38px;
+  line-height: 28px;
+}
+
+.road-logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.road-img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.road-img figcaption {
+  width: 257px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #272727;
+  text-align: center;
+  line-height: 28px;
+}
+
+.road-list {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  padding-left: 38px;
+  width: 100%;
+  padding-bottom: 32px;
+}
+
+.road-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.road-item-status-completed,
+.road-item-status-not-completed {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+}
+
+.road-item-status-completed {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.road-item-status-not-completed {
+  background-color: #e1e1e1;
+}
