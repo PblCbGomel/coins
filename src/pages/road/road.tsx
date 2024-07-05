@@ -20,6 +20,7 @@ export function RoadPage() {
         {roadItems.map((item) => {
           return <RoadItem {...item} />;
         })}
+        <div className="empty-road"></div>
       </div>
     </div>
   );
