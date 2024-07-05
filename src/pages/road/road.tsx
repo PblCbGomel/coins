@@ -11,7 +11,7 @@ export function RoadPage() {
         </div>
       </div>
       <figure className="road-img">
-        <img src="./drafts/road-img.png" width={106} height={106} alt="road" />
+        <img src="./images/road.gif" width={106} height={106} alt="road" />
         <figcaption>
           Get ready! <br /> Airdrop is coming soon!
         </figcaption>
