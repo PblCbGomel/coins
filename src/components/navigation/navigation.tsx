@@ -15,6 +15,7 @@ export function NavigationMenu() {
       {Routing.map((route) => {
         return (
           <NavLink
+            key={route.url}
             to={route.url}
             className={({ isActive }) => (isActive ? "active" : "innactive")}
           >
