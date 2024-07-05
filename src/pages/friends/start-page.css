@@ -1,0 +1,91 @@
+.start-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.start-page-text {
+  color: #272727;
+  width: 154px;
+  font-size: 14px;
+}
+
+.start-page-cards-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  margin: 33px auto;
+}
+
+.start-page-card {
+  background-color: white;
+  border-radius: 25px;
+  width: 142px;
+  height: 142px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.start-page-card h3 {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #9c3c05 0%, #de7d50 100%);
+  background-clip: text;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.start-page-card p {
+  font-size: 16px;
+  color: #272727;
+  font-weight: 500;
+  width: 74px;
+  text-align: center;
+}
+
+.start-page-how-header {
+  color: #272727;
+  margin-bottom: 26px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h5 {
+  color: #272727;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+}
+
+.start-page-how-text {
+  color: #272727;
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+}
+
+.start-page-how-border {
+  border: 1px solid #adadad;
+  height: 10px;
+  width: 0;
+  border-radius: 2px;
+  margin: 8px auto;
+}
+
+.start-page-how-wrapper div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
+}
