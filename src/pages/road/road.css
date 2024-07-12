@@ -42,6 +42,7 @@
   flex-direction: column;
   gap: 21px;
   padding-left: 38px;
+  padding-bottom: 21px;
   width: 100%;
 }
 
@@ -69,8 +70,4 @@
 
 .road-item-status-not-completed {
   background-color: #e1e1e1;
-}
-
-.empty-road {
-  height: 0;
 }
