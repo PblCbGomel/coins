@@ -1,27 +1,29 @@
+import { useNavigate } from "react-router-dom";
 import "./modal.css";
 
 export function ModalButtons({
-  setIsFriendsListOpened,
   setIsModalButtonsOpened,
   isModalButtonsOpened,
 }: {
-  setIsFriendsListOpened: React.Dispatch<React.SetStateAction<boolean>>;
   setIsModalButtonsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   isModalButtonsOpened: boolean;
 }) {
+  const navigate = useNavigate();
+
   return (
-    <div
-      className={`modal-wrapper ${
-        isModalButtonsOpened && "modal-wrapper-active"
-      }`}
-    >
+    <>
+      <div
+        className={`modal-wrapper ${
+          isModalButtonsOpened && "modal-wrapper-active"
+        }`}
+      ></div>
       <div className="modal-btns-wrapper">
         <h4>Invite friends</h4>
         <button
           className="send-invite-btn"
           onClick={() => {
-            setIsFriendsListOpened(true);
             setIsModalButtonsOpened(false);
+            navigate("/friends/list");
           }}
         >
           <img src={"./icons/send.png"} width={13} height={12} alt="send" />
@@ -45,6 +47,6 @@ export function ModalButtons({
           Close
         </button>
       </div>
-    </div>
+    </>
   );
 }

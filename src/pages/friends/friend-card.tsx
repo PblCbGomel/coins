@@ -14,12 +14,12 @@ export function FriendCard({ avatar, nickname, coins }: Friend) {
         <div className="text-info">
           <h4>{nickname}</h4>
           <p>
-            <img src="./navigation/friends.svg" width={9} height={9} /> +25
+            <img src="../navigation/friends.svg" width={9} height={9} /> +25
           </p>
         </div>
       </div>
       <div className="friend-card-coins">
-        {coins} <img src="./icons/coin-main.png" width={20} height={20} />
+        {coins} <img src="../icons/coin-main.png" width={20} height={20} />
       </div>
     </div>
   );

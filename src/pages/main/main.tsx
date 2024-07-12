@@ -3,8 +3,12 @@ import { ProfileInfo } from "./profile-info";
 import "./main.css";
 import { ProgressBar } from "./progress";
 import { NavLink } from "react-router-dom";
+import { ModalButtons } from "../friends/modal-buttons";
+import { useState } from "react";
 
 export function MainPage() {
+  const [isModalButtonsOpened, setIsModalButtonsOpened] = useState(false);
+
   return (
     <div className="main-page-wrapper">
       <div className="main-header">
@@ -16,20 +20,23 @@ export function MainPage() {
           <div className="ticket-info">
             <p className="ticket-header">Your tickets</p>
             <div className="tickets-count">
-              <img
-                alt="ticket"
-                src="./icons/ticket.png"
-                width={19}
-                height={13}
-              />
-              <p>27</p>
+              <p>🎟️ 27</p>
             </div>
           </div>
-          <NavLink className="game-btn" to={"/friends"}>
-            Invite for <img src="./icons/ticket.png" width={19} height={13} />
-          </NavLink>
+          <button
+            className="game-btn"
+            onClick={() => {
+              setIsModalButtonsOpened(true);
+            }}
+          >
+            Invite for 🎟️
+          </button>
         </div>
         <ProgressBar />
+        <ModalButtons
+          setIsModalButtonsOpened={setIsModalButtonsOpened}
+          isModalButtonsOpened={isModalButtonsOpened}
+        />
       </div>
     </div>
   );

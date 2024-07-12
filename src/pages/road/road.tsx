@@ -18,7 +18,7 @@ export function RoadPage() {
       </figure>
       <div className="road-list">
         {roadItems.map((item) => {
-          return <RoadItem {...item} />;
+          return <RoadItem key={item.text} {...item} />;
         })}
         <div className="empty-road"></div>
       </div>
