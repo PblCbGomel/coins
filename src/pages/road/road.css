@@ -72,5 +72,6 @@
 }
 
 .empty-road {
-  height: 14px;
+  padding-top: 13px;
+  height: 0;
 }
