@@ -1,6 +1,6 @@
 .road-wrapper {
   display: flex;
-  height: calc(100% - 119px);
+  height: calc(100% - 132px);
   width: 100%;
   flex-direction: column;
   gap: 44px;
@@ -72,6 +72,5 @@
 }
 
 .empty-road {
-  padding-top: 13px;
   height: 0;
 }
