@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     tg.ready();
     tg.expand();
-    // postEvent("web_app_set_header_color", { color: "#f3f3f3" });
+    postEvent("web_app_set_header_color", { color: "#f3f3f3" });
   });
 
   return (
