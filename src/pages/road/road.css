@@ -1,9 +1,10 @@
 .road-wrapper {
   display: flex;
-  height: calc(100% - 122px);
+  height: calc(100% - 119px);
   width: 100%;
   flex-direction: column;
   gap: 44px;
+  padding-top: 28px;
   overflow-y: scroll;
   align-items: center;
 }
@@ -12,7 +13,6 @@
   width: 100%;
   padding-left: 38px;
   line-height: 28px;
-  padding-top: 28px;
 }
 
 .road-logo {
