@@ -32,7 +32,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: top;
   gap: 13px;
   max-height: 100%;
   padding-bottom: 13px;

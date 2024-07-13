@@ -29,7 +29,7 @@
 }
 
 .road-img figcaption {
-  width: 257px;
+  width: 300px;
   font-size: 24px;
   font-weight: 700;
   color: #272727;
@@ -44,6 +44,7 @@
   padding-left: 38px;
   max-height: 100%;
   width: 100%;
+  padding-bottom: 13px;
 }
 
 .road-item {
@@ -70,8 +71,4 @@
 
 .road-item-status-not-completed {
   background-color: #e1e1e1;
-}
-
-.empty-item {
-  padding-bottom: 13px;
 }
