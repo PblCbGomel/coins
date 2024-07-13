@@ -72,3 +72,7 @@
 .road-item-status-not-completed {
   background-color: #e1e1e1;
 }
+
+.empty-item {
+  padding-bottom: 13px;
+}
