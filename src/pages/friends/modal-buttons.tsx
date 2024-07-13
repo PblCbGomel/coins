@@ -16,6 +16,9 @@ export function ModalButtons({
         className={`modal-wrapper ${
           isModalButtonsOpened && "modal-wrapper-active"
         }`}
+        onClick={() => {
+          setIsModalButtonsOpened(false);
+        }}
       ></div>
       <div className="modal-btns-wrapper">
         <h4>Invite friends</h4>
