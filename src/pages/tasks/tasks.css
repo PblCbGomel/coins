@@ -1,6 +1,6 @@
 .tasks-wrapper {
   display: flex;
-  height: calc(100% - 132px);
+  height: calc(100% - 119px);
   width: 100%;
   flex-direction: column;
   gap: 33px;
