@@ -10,7 +10,7 @@
 
 .tasks-header {
   width: 100%;
-  padding-left: 38px;
+  padding-left: calc(2.5vw + 22px);
   line-height: 28px;
 }
 
@@ -39,7 +39,7 @@
 
 .task-card {
   display: flex;
-  padding: 16px 20px 16px 24px;
+  padding: 16px 20px 16px 22px;
   justify-content: space-between;
   align-items: center;
   width: 95%;
