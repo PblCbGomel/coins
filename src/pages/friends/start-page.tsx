@@ -24,8 +24,8 @@ export function FriendsStartPage() {
             Get a{" "}
             <img
               src="../icons/ticket.png"
-              width={16}
-              height={16}
+              width={17}
+              height={11}
               alt="ticket"
             />{" "}
             for every friend
