@@ -112,6 +112,12 @@
   gap: 4px;
 }
 
+.tickets-count p {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
 .game-btn {
   border: none;
   outline: inherit;

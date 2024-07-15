@@ -20,7 +20,16 @@ export function FriendsStartPage() {
       <div className="start-page-how-wrapper">
         <div>
           <h5>Share your invitation link</h5>
-          <p className="start-page-how-text">Get a 🎟️ for every friend</p>
+          <p className="start-page-how-text">
+            Get a{" "}
+            <img
+              src="../icons/ticket.png"
+              width={16}
+              height={16}
+              alt="ticket"
+            />{" "}
+            for every friend
+          </p>
         </div>
         <div className="start-page-how-border"></div>
         <div>
