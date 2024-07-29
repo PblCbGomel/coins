@@ -20,7 +20,15 @@ export function MainPage() {
           <div className="ticket-info">
             <p className="ticket-header">Your tickets</p>
             <div className="tickets-count">
-              <p>🎟️ 27</p>
+              <p>
+                <img
+                  src="../icons/ticket.png"
+                  width={17}
+                  height={11}
+                  alt="ticket"
+                />{" "}
+                27
+              </p>
             </div>
           </div>
           <button
@@ -29,7 +37,13 @@ export function MainPage() {
               setIsModalButtonsOpened(true);
             }}
           >
-            Invite for 🎟️
+            Invite for{" "}
+            <img
+              src="../icons/ticket.png"
+              width={17}
+              height={11}
+              alt="ticket"
+            />
           </button>
         </div>
         <ProgressBar />

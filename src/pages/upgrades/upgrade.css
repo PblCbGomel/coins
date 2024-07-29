@@ -15,7 +15,7 @@
   justify-content: space-between;
   line-height: 28px;
   width: 100%;
-  padding: 0 32px 0 38px;
+  padding: 0 32px 0 calc(2.5vw + 22px);
 }
 
 .logo {

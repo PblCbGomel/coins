@@ -15,12 +15,25 @@ export function FriendsListPage() {
         </div>
         <div className="friends-coins-wrapper">
           <div className="friends-coins">
-            <div className="friends-coins-ticket-wrapper">🎟️</div>
+            <div className="friends-coins-ticket-wrapper">
+              <img
+                src="../icons/coin-main.png"
+                alt="coin"
+                width={36}
+                height={36}
+              />
+            </div>
             <p>1,241</p>
           </div>
           <div className="friends-coins-text">
-            Score 10% from buddies +2.5% from their referrals Get a 🎟️ play pass
-            for each frends
+            Score 10% from buddies +2.5% from their referrals Get a{" "}
+            <img
+              src="../icons/ticket.png"
+              width={17}
+              height={11}
+              alt="ticket"
+            />{" "}
+            play pass for each frends
           </div>
           <button className="friends-claim-btn">Claim in 06h 55m</button>
         </div>
