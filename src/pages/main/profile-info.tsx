@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { tg } from "../../App";
 
 export function ProfileInfo() {
   return (
@@ -12,7 +13,7 @@ export function ProfileInfo() {
         />
         <div className="profile-text">
           <div className="nickname">Иван Алексеев</div>
-          <div className="id">id 666444333</div>
+          <div className="id">{tg.initDataUnsafe.user.id}</div>
         </div>
       </div>
       <NavLink className="change-theme-btn" to={"/friends"}>
