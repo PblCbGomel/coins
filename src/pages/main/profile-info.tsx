@@ -10,7 +10,7 @@ export function ProfileInfo() {
     getUserPhotos({ user_id: tg?.initDataUnsafe?.user?.id })
       .then((response) => response.json())
       .then((response) => {
-        setImage(response.ok);
+        setImage(response);
         getPhotoFile({ file_id: response.result.photos[0].file_id })
           .then((response) => response.json())
           .then(
@@ -19,9 +19,6 @@ export function ProfileInfo() {
             //   `https://api.telegram.org/file/bot${process.env.REACT_APP_BOT_TOKEN}${response.result.file_id}`
             // )
           );
-      })
-      .catch((err) => {
-        setImage(err);
       });
   });
 
