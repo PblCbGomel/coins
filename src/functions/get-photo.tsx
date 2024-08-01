@@ -30,7 +30,7 @@ const getFileOptions = {
 
 export async function getPhotoFile({ user_id }: { user_id: string }) {
   const file_id = ((await getUserPhoto({ user_id })) as any).json()?.result
-    ?.file_id;
+    ?.photos[0]?.file_id;
   return fetch(
     `https://api.telegram.org/${process.env.REACT_APP_BOT_TOKEN}/getFile`,
     {
