@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getPhotoFile } from "../../functions/get-photo";
 
 export function ProfileInfo() {
-  const [image, setImage] = useState<any>();
+  const [image, setImage] = useState<any>("");
 
   useEffect(() => {
     getPhotoFile({ user_id: tg.initDataUnsafe.user.id }).then((res: any) => {
@@ -18,7 +18,7 @@ export function ProfileInfo() {
     <div className="profile-info">
       <div className="profile-tg-info">
         <img
-          src="./drafts/photo-main.svg"
+          src={image || "./drafts/photo-main.svg"}
           width={66}
           height={66}
           className="image"
