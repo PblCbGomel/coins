@@ -9,20 +9,22 @@ export function ProfileInfo() {
   useEffect(() => {
     getUserPhoto({ user_id: tg?.initDataUnsafe?.user?.id })
       .then((response) => response.json())
-      .then((response) =>
-        getPhotoFile({ file_id: response.result.photos[0][0].file_id })
+      .then((response) => {
+        setImage(response.result.photos[0].file_id);
+        getPhotoFile({ file_id: response.result.photos[0].file_id })
           .then((response) => response.json())
-          .then((response) =>
-            setImage(
-              `https://api.telegram.org/file/bot${process.env.REACT_APP_BOT_TOKEN}${response.result.file_id}`
-            )
-          )
-      );
+          .then(
+            (response) => {}
+            // setImage(
+            //   `https://api.telegram.org/file/bot${process.env.REACT_APP_BOT_TOKEN}${response.result.file_id}`
+            // )
+          );
+      });
   });
 
   return (
     <div className="profile-info">
-      <div>{image}</div>
+      <div>sad{image}</div>
       <div className="profile-tg-info">
         <img
           src={image || "./drafts/photo-main.svg"}
