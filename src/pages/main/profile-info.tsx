@@ -1,16 +1,18 @@
 import { NavLink } from "react-router-dom";
 import { tg } from "../../App";
 import { useEffect, useState } from "react";
-import { getPhotoFile, getUserPhoto } from "../../functions/get-photo";
+import { getPhotoFile, getUserPhotos } from "../../functions/get-photo";
 
 export function ProfileInfo() {
   const [image, setImage] = useState<any>("");
 
   useEffect(() => {
-    getUserPhoto({ user_id: tg?.initDataUnsafe?.user?.id })
-      .then((response) => response.json())
+    getUserPhotos({ user_id: tg?.initDataUnsafe?.user?.id })
       .then((response) => {
-        setImage(response.ok);
+        setImage(response);
+      })
+      .then((response) => {
+        setImage(response);
         getPhotoFile({ file_id: response.result.photos[0].file_id })
           .then((response) => response.json())
           .then(

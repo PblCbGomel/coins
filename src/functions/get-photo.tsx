@@ -8,7 +8,7 @@ const getPhotoOptions = {
   },
 };
 
-export function getUserPhoto({ user_id }: { user_id: string }) {
+export function getUserPhotos({ user_id }: { user_id: string }) {
   return fetch(
     `https://api.telegram.org/${process.env.REACT_APP_BOT_TOKEN}/getUserProfilePhotos`,
     {
