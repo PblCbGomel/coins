@@ -10,7 +10,7 @@ export function ProfileInfo() {
     getUserPhoto({ user_id: tg?.initDataUnsafe?.user?.id })
       .then((response) => response.json())
       .then((response) => {
-        setImage(response.result.photos[0].file_id);
+        setImage(response.result.photos);
         getPhotoFile({ file_id: response.result.photos[0].file_id })
           .then((response) => response.json())
           .then(
