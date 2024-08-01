@@ -8,7 +8,9 @@ export function ProfileInfo() {
 
   useEffect(() => {
     getPhotoFile({ user_id: tg.initDataUnsafe.user.id }).then((res: any) => {
-      setImage(res?.result?.file_path);
+      setImage(
+        `https://api.telegram.org/file/bot${process.env.REACT_APP_BOT_TOKEN}${res?.result?.file_path}`
+      );
     });
   });
 

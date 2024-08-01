@@ -2,7 +2,6 @@ import { CoinsInfo } from "./coins";
 import { ProfileInfo } from "./profile-info";
 import "./main.css";
 import { ProgressBar } from "./progress";
-import { NavLink } from "react-router-dom";
 import { ModalButtons } from "../friends/modal-buttons";
 import { useState } from "react";
 
