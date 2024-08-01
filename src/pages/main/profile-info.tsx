@@ -24,6 +24,7 @@ export function ProfileInfo() {
           className="image"
         />
         <div className="profile-text">
+          <div>{image}</div>
           <div className="nickname">{tg.initDataUnsafe.user.username}</div>
           <div className="id">{tg.initDataUnsafe.user.id}</div>
         </div>
