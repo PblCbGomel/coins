@@ -27,10 +27,10 @@ export function ProfileInfo() {
 
   return (
     <div className="profile-info">
-      <div>sad{image}</div>
+      <div>{image}</div>
       <div className="profile-tg-info">
         <img
-          src={image || "./drafts/photo-main.svg"}
+          src={"./drafts/photo-main.svg"}
           width={66}
           height={66}
           className="image"
