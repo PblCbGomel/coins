@@ -8,11 +8,9 @@ export function ProfileInfo() {
 
   useEffect(() => {
     getUserPhotos({ user_id: tg?.initDataUnsafe?.user?.id })
+      .then((response) => response.json())
       .then((response) => {
-        setImage(response);
-      })
-      .then((response) => {
-        setImage(response);
+        setImage(response.ok);
         getPhotoFile({ file_id: response.result.photos[0].file_id })
           .then((response) => response.json())
           .then(
@@ -21,6 +19,9 @@ export function ProfileInfo() {
             //   `https://api.telegram.org/file/bot${process.env.REACT_APP_BOT_TOKEN}${response.result.file_id}`
             // )
           );
+      })
+      .catch((err) => {
+        setImage(err);
       });
   });
 
