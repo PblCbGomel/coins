@@ -1,30 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { tg } from "../../App";
-import { useEffect, useState } from "react";
-import { getPhotoFile, getUserPhotos } from "../../functions/get-photo";
 
 export function ProfileInfo() {
-  const [image, setImage] = useState<any>("");
-
-  useEffect(() => {
-    getUserPhotos({ user_id: tg?.initDataUnsafe?.user?.id })
-      .then((response) => response.json())
-      .then((response) => {
-        setImage(response);
-        getPhotoFile({ file_id: response.result.photos[0].file_id })
-          .then((response) => response.json())
-          .then(
-            (response) => {}
-            // setImage(
-            //   `https://api.telegram.org/file/bot${process.env.REACT_APP_BOT_TOKEN}${response.result.file_id}`
-            // )
-          );
-      });
-  });
-
   return (
     <div className="profile-info">
-      <div>{image}</div>
       <div className="profile-tg-info">
         <img
           src={"./drafts/photo-main.svg"}
