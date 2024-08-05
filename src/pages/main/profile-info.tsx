@@ -13,9 +13,11 @@ export function ProfileInfo() {
         />
         <div className="profile-text">
           <div className="nickname">
-            {tg?.initDataUnsafe?.user?.username || ""}
+            {tg?.initDataUnsafe?.user?.username || "username"}
           </div>
-          <div className="id">{tg?.initDataUnsafe?.user?.id || ""}</div>
+          <div className="id">
+            {tg?.initDataUnsafe?.user?.id || "123456789"}
+          </div>
         </div>
       </div>
       <NavLink className="change-theme-btn" to={"/friends"}>

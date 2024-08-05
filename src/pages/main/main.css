@@ -188,3 +188,10 @@
   align-items: center;
   width: 80%;
 }
+
+.start-farming {
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  width: 100%;
+}

@@ -3,10 +3,23 @@ import { ProfileInfo } from "./profile-info";
 import "./main.css";
 import { ProgressBar } from "./progress";
 import { ModalButtons } from "../friends/modal-buttons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { tg } from "../../App";
+import { GetFetch } from "../../functions/fetch";
+import { UserInfo } from "../../interfaces/user";
 
 export function MainPage() {
   const [isModalButtonsOpened, setIsModalButtonsOpened] = useState(false);
+  const [userInfo, setUserInfo] = useState<UserInfo | undefined>();
+
+  useEffect(() => {
+    GetFetch({
+      path: "/api/user",
+      query: tg?.initDataUnsafe?.user?.id || "123456789",
+    }).then((result) => {
+      setUserInfo(result.data);
+    });
+  });
 
   return (
     <div className="main-page-wrapper">
@@ -26,7 +39,7 @@ export function MainPage() {
                   height={11}
                   alt="ticket"
                 />{" "}
-                27
+                {userInfo?.tickets || 0}
               </p>
             </div>
           </div>
