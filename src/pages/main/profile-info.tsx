@@ -1,15 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { tg } from "../../App";
+import { Avatar } from "../../components/avatar/avatar";
 
 export function ProfileInfo() {
   return (
     <div className="profile-info">
       <div className="profile-tg-info">
-        <img
-          src={"./drafts/photo-main.svg"}
-          width={66}
-          height={66}
-          className="image"
+        <Avatar
+          size="66px"
+          name={tg?.initDataUnsafe?.user?.username || "username"}
         />
         <div className="profile-text">
           <div className="nickname">

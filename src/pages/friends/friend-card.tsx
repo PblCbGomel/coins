@@ -1,16 +1,16 @@
-import './friends.css';
+import { Avatar } from "../../components/avatar/avatar";
+import "./friends.css";
 
 export interface Friend {
-  avatar: string;
   nickname: string;
   coins: number | string;
 }
 
-export function FriendCard({ avatar, nickname, coins }: Friend) {
+export function FriendCard({ nickname, coins }: Friend) {
   return (
     <div className="friend-card">
       <div className="friend-info">
-        <img className="friend-avatar" src={avatar} width={41} height={41} />
+        <Avatar name={nickname} size="41px" />
         <div className="text-info">
           <h4>{nickname}</h4>
           <p>

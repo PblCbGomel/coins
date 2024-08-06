@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
-import './main.css';
-import { GetFetch, PatchFetch } from '../../functions/fetch';
-import { tg } from '../../App';
-import { UserInfo } from '../../interfaces/user';
-
-const LIMIT = 28800000;
+import { useEffect, useState } from "react";
+import "./main.css";
+import { GetFetch, PatchFetch } from "../../functions/fetch";
+import { tg } from "../../App";
+import { UserInfo } from "../../interfaces/user";
+import { FARM_LIMIT } from "../../constants/time-limit";
 
 export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
   const [currentDate, setCurrentDate] = useState(
-    new Date().getTime() - new Date(userInfo?.lastFarmStart || '').getTime()
+    new Date().getTime() - new Date(userInfo?.lastFarmStart || "").getTime()
   );
 
   useEffect(() => {
-    setCurrentDate(new Date().getTime() - new Date(userInfo?.lastFarmStart || '').getTime());
+    setCurrentDate(
+      new Date().getTime() - new Date(userInfo?.lastFarmStart || "").getTime()
+    );
   }, [userInfo]);
 
   if (!userInfo?.lastFarmStart) {
@@ -21,8 +22,8 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
         className="bar"
         onClick={() => {
           PatchFetch({
-            path: '/api/farmStart',
-            query: { id: tg?.initDataUnsafe?.user?.id || '123456789' }
+            path: "/api/farmStart",
+            query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
           });
         }}
       >
@@ -34,21 +35,29 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
     <div
       className="bar"
       onClick={() => {
-        if (LIMIT - currentDate <= 0) {
+        if (FARM_LIMIT - currentDate <= 0) {
           PatchFetch({
-            path: '/api/collect',
-            query: { id: tg?.initDataUnsafe?.user?.id || '123456789' }
+            path: "/api/collect",
+            query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
           });
         }
       }}
     >
-      <div style={{ width: `${(currentDate / LIMIT) * 100}%`, minWidth: '60px' }} className="progress"></div>
+      <div
+        style={{
+          width: `${(currentDate / FARM_LIMIT) * 100}%`,
+          minWidth: "60px",
+        }}
+        className="progress"
+      ></div>
       <p className="farming">Farming {userInfo?.earnedCoins}</p>
       <p className="time">
-        {currentDate / LIMIT < 1
-          ? `${new Date(LIMIT - currentDate).getHours() - 3}h ${new Date(LIMIT - currentDate).getMinutes()}m
-        ${new Date(LIMIT - currentDate).getSeconds()}s`
-          : 'COLLECT'}
+        {currentDate / FARM_LIMIT < 1
+          ? `${new Date(FARM_LIMIT - currentDate).getHours() - 3}h ${new Date(
+              FARM_LIMIT - currentDate
+            ).getMinutes()}m
+        ${new Date(FARM_LIMIT - currentDate).getSeconds()}s`
+          : "COLLECT"}
       </p>
     </div>
   );

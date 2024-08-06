@@ -7,6 +7,7 @@ export interface UserInfo {
   refLinkStatus: boolean;
   refId: string;
   tgId: string;
+  name: string;
   speedLevel: number;
   volumeLevel: number;
   timeLevel: number;
