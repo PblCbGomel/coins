@@ -5,6 +5,7 @@ import { Avatar } from "../../components/avatar/avatar";
 export function ProfileInfo() {
   return (
     <div className="profile-info">
+      {tg}
       <div className="profile-tg-info">
         <Avatar size="66px" name={tg?.user?.username || "username"} />
         <div className="profile-text">
