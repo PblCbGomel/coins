@@ -15,7 +15,7 @@ export function MainPage() {
   useEffect(() => {
     GetFetch({
       path: "/api/user",
-      query: { id: tg?.user?.id || "123456789" },
+      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
     }).then((result) => {
       setUserInfo(result);
     });
@@ -25,7 +25,7 @@ export function MainPage() {
     const getUserInfoTime = setInterval(() => {
       GetFetch({
         path: "/api/user",
-        query: { id: tg?.user?.id || "123456789" },
+        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
       }).then((result) => {
         setUserInfo(result);
       });

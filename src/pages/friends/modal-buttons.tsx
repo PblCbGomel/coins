@@ -33,7 +33,7 @@ export function ModalButtons({
             setIsModalButtonsOpened(false);
             PatchFetch({
               path: "/api/reflink",
-              query: { id: tg?.user?.id || "123456789" },
+              query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
             });
             if (userInfo && userInfo.refCount > 0) {
               navigate("/friends/list");
@@ -47,7 +47,9 @@ export function ModalButtons({
           className="copy-link-btn"
           onClick={() => {
             navigator.clipboard.writeText(
-              `https://t.me/botname?start=${tg?.user?.id || "123456789"}`
+              `https://t.me/botname?start=${
+                tg?.initDataUnsafe?.user?.id || "123456789"
+              }`
             );
           }}
         >

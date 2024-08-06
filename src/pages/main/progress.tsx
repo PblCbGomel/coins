@@ -23,7 +23,7 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
         onClick={() => {
           PatchFetch({
             path: "/api/farmStart",
-            query: { id: tg?.user?.id || "123456789" },
+            query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
           });
         }}
       >
@@ -43,7 +43,7 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
         if (FARM_LIMIT - currentDate <= 0) {
           PatchFetch({
             path: "/api/collect",
-            query: { id: tg?.user?.id || "123456789" },
+            query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
           });
         }
       }}

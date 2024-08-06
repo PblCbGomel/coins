@@ -7,10 +7,17 @@ export function ProfileInfo() {
     <div className="profile-info">
       {tg}
       <div className="profile-tg-info">
-        <Avatar size="66px" name={tg?.user?.username || "username"} />
+        <Avatar
+          size="66px"
+          name={tg?.initDataUnsafe?.user?.username || "username"}
+        />
         <div className="profile-text">
-          <div className="nickname">{tg?.user?.username || "username"}</div>
-          <div className="id">id{tg?.user?.id || "123456789"}</div>
+          <div className="nickname">
+            {tg?.initDataUnsafe?.user?.username || "username"}
+          </div>
+          <div className="id">
+            id{tg?.initDataUnsafe?.user?.id || "123456789"}
+          </div>
         </div>
       </div>
       <NavLink className="change-theme-btn" to={"/friends"}>

@@ -26,26 +26,26 @@ export function FriendsListPage() {
   useEffect(() => {
     GetFetch({
       path: "/api/getReferrals",
-      query: { id: tg?.user?.id || "123456789" },
+      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
     }).then((result) => {
       setFriends(result);
     });
     GetFetch({
       path: "/api/user",
-      query: { id: tg?.user?.id || "123456789" },
+      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
     }).then((result) => {
       setUserInfo(result);
     });
     const interval = setInterval(() => {
       GetFetch({
         path: "/api/getReferrals",
-        query: { id: tg?.user?.id || "123456789" },
+        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
       }).then((result) => {
         setFriends(result);
       });
       GetFetch({
         path: "/api/user",
-        query: { id: tg?.user?.id || "123456789" },
+        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
       }).then((result) => {
         setUserInfo(result);
       });
@@ -96,12 +96,12 @@ export function FriendsListPage() {
                 if (REF_LIMIT - currentDate <= 0) {
                   PatchFetch({
                     path: "/api/claimRefCoins",
-                    query: { id: tg?.user?.id || "123456789" },
+                    query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
                   }).then(() => {
                     GetFetch({
                       path: "/api/user",
                       query: {
-                        id: tg?.user?.id || "123456789",
+                        id: tg?.initDataUnsafe?.user?.id || "123456789",
                       },
                     }).then((result) => {
                       setNotificationCoins(userInfo?.coinsFromRefs || 0);
