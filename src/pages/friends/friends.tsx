@@ -16,7 +16,7 @@ export function FriendsPage() {
   useEffect(() => {
     GetFetch({
       path: "/api/user",
-      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+      query: { id: tg?.user?.id || "123456789" },
     }).then((result: UserInfo) => {
       if (result.refCount > 0) {
         navigate("/friends/list");
