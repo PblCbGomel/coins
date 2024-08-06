@@ -5,7 +5,6 @@ import { Avatar } from "../../components/avatar/avatar";
 export function ProfileInfo() {
   return (
     <div className="profile-info">
-      <>{String(tg?.initDataUnsafe?.user?.username)}</>
       <div className="profile-tg-info">
         <Avatar
           size="66px"
