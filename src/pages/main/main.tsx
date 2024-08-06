@@ -77,6 +77,7 @@ export function MainPage() {
         <ModalButtons
           setIsModalButtonsOpened={setIsModalButtonsOpened}
           isModalButtonsOpened={isModalButtonsOpened}
+          userInfo={userInfo}
         />
       </div>
     </div>

@@ -8,21 +8,13 @@ import { UserInfo } from "../../interfaces/user";
 export function ModalButtons({
   setIsModalButtonsOpened,
   isModalButtonsOpened,
+  userInfo,
 }: {
   setIsModalButtonsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   isModalButtonsOpened: boolean;
+  userInfo?: UserInfo;
 }) {
   const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useState<UserInfo | undefined>();
-
-  useEffect(() => {
-    GetFetch({
-      path: "/api/user",
-      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-    }).then((result: UserInfo) => {
-      setUserInfo(result);
-    });
-  });
 
   return (
     <>
