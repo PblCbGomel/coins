@@ -21,7 +21,20 @@ export function MainPage() {
     });
   }, [isModalButtonsOpened]);
 
-  useEffect(() => {});
+  useEffect(() => {
+    const getUserInfoTime = setInterval(() => {
+      GetFetch({
+        path: "/api/user",
+        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+      }).then((result) => {
+        setUserInfo(result);
+      });
+    }, 1000);
+
+    return () => {
+      clearInterval(getUserInfoTime);
+    };
+  });
 
   return (
     <div className="main-page-wrapper">
