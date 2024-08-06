@@ -13,4 +13,5 @@ export interface UserInfo {
   timeLevel: number;
   lastFarmStart: string | null;
   lastRefClaim: string | null;
+  refCount: number;
 }

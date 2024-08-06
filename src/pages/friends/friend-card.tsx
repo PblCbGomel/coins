@@ -1,12 +1,13 @@
-import { Avatar } from "../../components/avatar/avatar";
-import "./friends.css";
+import { Avatar } from '../../components/avatar/avatar';
+import './friends.css';
 
 export interface Friend {
   nickname: string;
   coins: number | string;
+  refCount: number;
 }
 
-export function FriendCard({ nickname, coins }: Friend) {
+export function FriendCard({ nickname, coins, refCount }: Friend) {
   return (
     <div className="friend-card">
       <div className="friend-info">
@@ -14,7 +15,7 @@ export function FriendCard({ nickname, coins }: Friend) {
         <div className="text-info">
           <h4>{nickname}</h4>
           <p>
-            <img src="../navigation/friends.svg" width={9} height={9} /> +25
+            <img src="../navigation/friends.svg" width={9} height={9} /> +{refCount}
           </p>
         </div>
       </div>
