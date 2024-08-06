@@ -49,11 +49,12 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
       }}
     >
       <p className="farming">
-        Farming{" "}
+        {currentDate / FARM_LIMIT < 1 ? "Farming" : "Collect"}{" "}
         {Math.trunc(
           (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *
-            userInfo?.earnedCoins
-        )}
+            userInfo?.earnedCoins *
+            1000
+        ) / 1000}
       </p>
       <p className="time">
         {currentDate / FARM_LIMIT < 1
@@ -61,7 +62,7 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
               FARM_LIMIT - currentDate
             ).getMinutes()}m
         ${new Date(FARM_LIMIT - currentDate).getSeconds()}s`
-          : "Collect"}
+          : ""}
       </p>
     </div>
   );

@@ -21,20 +21,7 @@ export function MainPage() {
     });
   }, [isModalButtonsOpened]);
 
-  useEffect(() => {
-    const getUserInfoTime = setInterval(() => {
-      GetFetch({
-        path: "/api/user",
-        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-      }).then((result) => {
-        setUserInfo(result);
-      });
-    }, 1000);
-
-    return () => {
-      clearInterval(getUserInfoTime);
-    };
-  });
+  useEffect(() => {});
 
   return (
     <div className="main-page-wrapper">
@@ -43,7 +30,7 @@ export function MainPage() {
         <CoinsInfo userInfo={userInfo} />
       </div>
       <div className="main-info">
-        <div className="game">
+        {/* <div className="game">
           <div className="ticket-info">
             <p className="ticket-header">Your tickets</p>
             <div className="tickets-count">
@@ -72,7 +59,7 @@ export function MainPage() {
               alt="ticket"
             />
           </button>
-        </div>
+        </div> */}
         <ProgressBar userInfo={userInfo} />
         <ModalButtons
           setIsModalButtonsOpened={setIsModalButtonsOpened}
