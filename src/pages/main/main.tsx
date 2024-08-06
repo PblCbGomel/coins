@@ -15,7 +15,7 @@ export function MainPage() {
   useEffect(() => {
     GetFetch({
       path: "/api/user",
-      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+      query: { id: userInfo?.tgId || "123456789" },
     }).then((result) => {
       setUserInfo(result);
     });
@@ -25,7 +25,7 @@ export function MainPage() {
     const getUserInfoTime = setInterval(() => {
       GetFetch({
         path: "/api/user",
-        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+        query: { id: userInfo?.tgId || "123456789" },
       }).then((result) => {
         setUserInfo(result);
       });
@@ -39,7 +39,7 @@ export function MainPage() {
   return (
     <div className="main-page-wrapper">
       <div className="main-header">
-        <ProfileInfo />
+        <ProfileInfo userInfo={userInfo} />
         <CoinsInfo userInfo={userInfo} />
       </div>
       <div className="main-info">
