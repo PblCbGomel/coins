@@ -13,6 +13,15 @@ export function MainPage() {
   const [userInfo, setUserInfo] = useState<UserInfo | undefined>();
 
   useEffect(() => {
+    GetFetch({
+      path: '/api/user',
+      query: { id: tg?.initDataUnsafe?.user?.id || '123456789' }
+    }).then((result) => {
+      setUserInfo(result);
+    });
+  }, [isModalButtonsOpened]);
+
+  useEffect(() => {
     const getUserInfoTime = setInterval(() => {
       GetFetch({
         path: '/api/user',
