@@ -15,7 +15,7 @@ export function ProfileInfo() {
             {tg?.initDataUnsafe?.user?.username || "username"}
           </div>
           <div className="id">
-            {tg?.initDataUnsafe?.user?.id || "123456789"}
+            id{tg?.initDataUnsafe?.user?.id || "123456789"}
           </div>
         </div>
       </div>

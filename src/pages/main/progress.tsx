@@ -47,17 +47,23 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
         style={{
           width: `${(currentDate / FARM_LIMIT) * 100}%`,
           minWidth: "60px",
+          borderTopRightRadius:
+            (currentDate / FARM_LIMIT) * 100 >= 91 ? "28px" : 0,
+          borderBottomRightRadius:
+            (currentDate / FARM_LIMIT) * 100 >= 91 ? "28px" : 0,
         }}
         className="progress"
       ></div>
-      <p className="farming">Farming {userInfo?.earnedCoins}</p>
+      <p className="farming">
+        Farming {Math.trunc((currentDate / FARM_LIMIT) * userInfo?.earnedCoins)}
+      </p>
       <p className="time">
         {currentDate / FARM_LIMIT < 1
           ? `${new Date(FARM_LIMIT - currentDate).getHours() - 3}h ${new Date(
               FARM_LIMIT - currentDate
             ).getMinutes()}m
         ${new Date(FARM_LIMIT - currentDate).getSeconds()}s`
-          : "COLLECT"}
+          : "Collect"}
       </p>
     </div>
   );

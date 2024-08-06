@@ -125,7 +125,7 @@ export function FriendsListPage() {
                 ? `Claim in ${
                     new Date(REF_LIMIT - currentDate).getHours() - 3
                   }h ${new Date(REF_LIMIT - currentDate).getMinutes()}m`
-                : "CLAIM"}
+                : "Claim"}
             </button>
           </div>
 
