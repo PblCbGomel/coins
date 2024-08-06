@@ -1,7 +1,6 @@
 .avatar {
   border-radius: 50%;
   background: linear-gradient(180deg, #973700 0%, #df7e51 100%);
-  font-size: 32px;
   color: white;
   display: flex;
   align-items: center;
