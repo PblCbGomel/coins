@@ -1,9 +1,9 @@
-import "./friends.css";
+import './friends.css';
 
 export interface Friend {
   avatar: string;
   nickname: string;
-  coins: string;
+  coins: number | string;
 }
 
 export function FriendCard({ avatar, nickname, coins }: Friend) {

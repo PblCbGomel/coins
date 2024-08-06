@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import "./modal.css";
+import { useNavigate } from 'react-router-dom';
+import './modal.css';
+import { tg } from '../../App';
+import { PatchFetch } from '../../functions/fetch';
 
 export function ModalButtons({
   setIsModalButtonsOpened,
-  isModalButtonsOpened,
+  isModalButtonsOpened
 }: {
   setIsModalButtonsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   isModalButtonsOpened: boolean;
@@ -13,9 +15,7 @@ export function ModalButtons({
   return (
     <>
       <div
-        className={`modal-wrapper ${
-          isModalButtonsOpened && "modal-wrapper-active"
-        }`}
+        className={`modal-wrapper ${isModalButtonsOpened && 'modal-wrapper-active'}`}
         onClick={() => {
           setIsModalButtonsOpened(false);
         }}
@@ -26,19 +26,23 @@ export function ModalButtons({
           className="send-invite-btn"
           onClick={() => {
             setIsModalButtonsOpened(false);
-            navigate("/friends/list");
+            PatchFetch({
+              path: '/api/reflink',
+              query: { id: tg?.initDataUnsafe?.user?.id || '123456789' }
+            });
+            navigate('/friends/list');
           }}
         >
-          <img src={"./icons/send.png"} width={13} height={12} alt="send" />
+          <img src={'./icons/send.png'} width={13} height={12} alt="send" />
           <p>Send invite</p>
         </button>
         <button
           className="copy-link-btn"
           onClick={() => {
-            /* add clipboard functional */
+            navigator.clipboard.writeText(`https://t.me/botname?start=${tg?.initDataUnsafe?.user?.id || '123456789'}`);
           }}
         >
-          <img src={"./icons/copy.png"} width={13} height={15} alt="copy" />
+          <img src={'./icons/copy.png'} width={13} height={15} alt="copy" />
           <p>Copy link</p>
         </button>
         <button

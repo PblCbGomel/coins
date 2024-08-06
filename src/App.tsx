@@ -1,13 +1,14 @@
-import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { MainPage } from "./pages/main/main";
-import { FriendsPage } from "./pages/friends/friends";
-import { UpgradesPage } from "./pages/upgrades/upgrades";
-import { TasksPage } from "./pages/tasks/tasks";
-import { NavigationMenu } from "./components/navigation/navigation";
-import { postEvent } from "@tma.js/sdk";
-import { RoadPage } from "./pages/road/road";
-import { FriendsListPage } from "./pages/friends/friends-list";
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { MainPage } from './pages/main/main';
+import { FriendsPage } from './pages/friends/friends';
+import { UpgradesPage } from './pages/upgrades/upgrades';
+import { TasksPage } from './pages/tasks/tasks';
+import { NavigationMenu } from './components/navigation/navigation';
+import { postEvent } from '@tma.js/sdk';
+import { RoadPage } from './pages/road/road';
+import { FriendsListPage } from './pages/friends/friends-list';
+import { GetFetch } from './functions/fetch';
 
 export const tg = window.Telegram.WebApp;
 
@@ -29,12 +30,8 @@ function App() {
           <Route
             path="friends"
             children={[
-              <Route key={"main-fiends"} path="" element={<FriendsPage />} />,
-              <Route
-                key={"list-fiends"}
-                path="list"
-                element={<FriendsListPage />}
-              />,
+              <Route key={'main-fiends'} path="" element={<FriendsPage />} />,
+              <Route key={'list-fiends'} path="list" element={<FriendsListPage />} />
             ]}
           />
           <Route path="*" element={<Navigate to="/main" replace />} />
