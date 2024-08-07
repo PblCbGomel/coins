@@ -6,6 +6,7 @@ import { GetFetch, PatchFetch } from "../../functions/fetch";
 import { tg } from "../../App";
 import { UserInfo } from "../../interfaces/user";
 import { REF_LIMIT } from "../../constants/time-limit";
+import { CoinNotification } from "../../components/coin-notification/coin-notification";
 
 export function FriendsListPage() {
   const [leftFrinedsCount, setLeftFriendsCount] = useState(10);
@@ -63,10 +64,7 @@ export function FriendsListPage() {
             <h2>Your Friends</h2>
           </div>
           {Boolean(notificationCoins) && (
-            <div className="notification-friend">
-              <img src="../icons/notif.svg" />
-              <p>You Got +{notificationCoins} Peak Points</p>
-            </div>
+            <CoinNotification coins={notificationCoins} />
           )}
           <div className="friends-coins-wrapper">
             <div className="friends-coins">

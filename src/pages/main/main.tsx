@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { tg } from "../../App";
 import { GetFetch } from "../../functions/fetch";
 import { UserInfo } from "../../interfaces/user";
+import { CoinNotification } from "../../components/coin-notification/coin-notification";
 
 export function MainPage() {
   const [isModalButtonsOpened, setIsModalButtonsOpened] = useState(false);
@@ -22,18 +23,17 @@ export function MainPage() {
   }, [isModalButtonsOpened]);
 
   useEffect(() => {
-    const getUserInfoTime = setInterval(() => {
-      GetFetch({
-        path: "/api/user",
-        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-      }).then((result) => {
-        setUserInfo(result);
-      });
-    }, 1000);
-
-    return () => {
-      clearInterval(getUserInfoTime);
-    };
+    // const getUserInfoTime = setInterval(() => {
+    //   GetFetch({
+    //     path: "/api/user",
+    //     query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+    //   }).then((result) => {
+    //     setUserInfo(result);
+    //   });
+    // }, 1000);
+    // return () => {
+    //   clearInterval(getUserInfoTime);
+    // };
   });
 
   return (

@@ -1,0 +1,27 @@
+.notification {
+  width: 95%;
+  color: white;
+  background-color: #878787;
+  border-radius: 25px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 11px;
+  position: absolute;
+  top: 13px;
+  animation: 0.3s 1 slidein;
+  font-weight: 400;
+}
+
+@keyframes slidein {
+  from {
+    translate: 0 10vh;
+    opacity: 0;
+  }
+
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
