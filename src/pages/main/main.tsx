@@ -23,17 +23,17 @@ export function MainPage() {
   }, [isModalButtonsOpened]);
 
   useEffect(() => {
-    // const getUserInfoTime = setInterval(() => {
-    //   GetFetch({
-    //     path: "/api/user",
-    //     query: { id: tg?.initDataUnsafe?.user?.id || "973750295" },
-    //   }).then((result) => {
-    //     setUserInfo(result);
-    //   });
-    // }, 1000);
-    // return () => {
-    //   clearInterval(getUserInfoTime);
-    // };
+    const getUserInfoTime = setInterval(() => {
+      GetFetch({
+        path: "/api/user",
+        query: { id: tg?.initDataUnsafe?.user?.id || "973750295" },
+      }).then((result) => {
+        setUserInfo(result);
+      });
+    }, 1000);
+    return () => {
+      clearInterval(getUserInfoTime);
+    };
   });
 
   return (
