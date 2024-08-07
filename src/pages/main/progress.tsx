@@ -25,7 +25,7 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
         onClick={() => {
           PatchFetch({
             path: "/api/farmStart",
-            query: { id: tg?.initDataUnsafe?.user?.id || "973750295" },
+            query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
           });
         }}
       >
@@ -54,7 +54,7 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
           setNotificationCoins(userInfo?.earnedCoins);
           PatchFetch({
             path: "/api/collect",
-            query: { id: tg?.initDataUnsafe?.user?.id || "973750295" },
+            query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
           });
         }
       }}

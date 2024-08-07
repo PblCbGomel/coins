@@ -15,7 +15,7 @@ export async function GetFetch({
       headers: {
         "Content-Type": "application/json",
       },
-      mode: "no-cors",
+      mode: "cors",
       body: JSON.stringify(body),
     }
   );
@@ -40,7 +40,7 @@ export async function PostFetch({
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-      mode: "no-cors",
+      mode: "cors",
     }
   );
   return response.json();
@@ -64,7 +64,7 @@ export async function PatchFetch({
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-      mode: "no-cors",
+      mode: "cors",
     }
   );
   return response?.json();
