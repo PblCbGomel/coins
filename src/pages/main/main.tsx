@@ -16,7 +16,7 @@ export function MainPage() {
   useEffect(() => {
     GetFetch({
       path: "/api/user",
-      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+      query: { id: tg?.initDataUnsafe?.user?.id || "973750295" },
     }).then((result) => {
       setUserInfo(result);
     });
@@ -26,7 +26,7 @@ export function MainPage() {
     // const getUserInfoTime = setInterval(() => {
     //   GetFetch({
     //     path: "/api/user",
-    //     query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+    //     query: { id: tg?.initDataUnsafe?.user?.id || "973750295" },
     //   }).then((result) => {
     //     setUserInfo(result);
     //   });

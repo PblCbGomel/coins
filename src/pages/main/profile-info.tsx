@@ -15,12 +15,12 @@ export function ProfileInfo() {
             {tg?.initDataUnsafe?.user?.username || "username"}
           </div>
           <div className="id">
-            id {tg?.initDataUnsafe?.user?.id || "123456789"}{" "}
+            id {tg?.initDataUnsafe?.user?.id || "973750295"}{" "}
             <img
               src="../icons/copy.svg"
               onClick={() => {
                 navigator.clipboard.writeText(
-                  tg?.initDataUnsafe?.user?.id || "123456789"
+                  tg?.initDataUnsafe?.user?.id || "973750295"
                 );
               }}
             />

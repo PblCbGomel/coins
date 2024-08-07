@@ -33,7 +33,7 @@ export function ModalButtons({
             setIsModalButtonsOpened(false);
             PatchFetch({
               path: "/api/reflink",
-              query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+              query: { id: tg?.initDataUnsafe?.user?.id || "973750295" },
             });
             if (userInfo && userInfo.refCount > 0) {
               navigate("/friends/list");
@@ -48,7 +48,7 @@ export function ModalButtons({
           onClick={() => {
             navigator.clipboard.writeText(
               `https://t.me/botname?start=${
-                tg?.initDataUnsafe?.user?.id || "123456789"
+                tg?.initDataUnsafe?.user?.id || "973750295"
               }`
             );
           }}
