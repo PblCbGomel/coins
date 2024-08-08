@@ -21,11 +21,23 @@ export function ProgressBar({
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    setCurrentDate(
-      new Date().getTime() -
-        new Date(userInfo?.lastFarmStart || "").getTime() +
-        new Date().getTimezoneOffset() * 60000
-    );
+    if (
+      new Date().getTime() - new Date(userInfo?.lastFarmStart || "").getTime() <
+      0
+    ) {
+      setCurrentDate(
+        new Date(userInfo?.lastFarmStart || "").getTime() -
+          new Date().getTime() +
+          new Date().getTimezoneOffset() * 60000
+      );
+    } else {
+      setCurrentDate(
+        new Date().getTime() -
+          new Date(userInfo?.lastFarmStart || "").getTime() +
+          new Date().getTimezoneOffset() * 60000
+      );
+    }
+
     const interval = setInterval(() => {
       setCurrentDate(
         new Date().getTime() -
@@ -113,9 +125,10 @@ export function ProgressBar({
         </p>
         <p className="time">
           {currentDate / FARM_LIMIT < 1
-            ? `${new Date(FARM_LIMIT - currentDate).getHours() - 3}h ${new Date(
-                FARM_LIMIT - currentDate
-              ).getMinutes()}m
+            ? `${
+                new Date(FARM_LIMIT - currentDate).getHours() +
+                new Date().getTimezoneOffset() / 60
+              }h ${new Date(FARM_LIMIT - currentDate).getMinutes()}m
         ${new Date(FARM_LIMIT - currentDate).getSeconds()}s`
             : ""}
         </p>

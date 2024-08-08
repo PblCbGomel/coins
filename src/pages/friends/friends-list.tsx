@@ -136,7 +136,8 @@ export function FriendsListPage() {
               {" "}
               {currentDate / REF_LIMIT < 1
                 ? `Claim in ${
-                    new Date(REF_LIMIT - currentDate).getHours() - 3
+                    new Date(REF_LIMIT - currentDate).getHours() +
+                    new Date().getTimezoneOffset() / 60
                   }h ${new Date(
                     Math.ceil((REF_LIMIT - currentDate) / 60000) * 60000
                   ).getMinutes()}m`
