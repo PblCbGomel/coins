@@ -25,7 +25,7 @@ export function ProgressBar({
     setCurrentDate(
       new Date(userInfo?.lastFarmStart || "").getTime() +
         new Date().getTimezoneOffset() * 60000 +
-        1000
+        1000 || 0
     );
     const interval = setInterval(() => {
       setCurrentDate(
@@ -58,7 +58,6 @@ export function ProgressBar({
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
                 setUserInfo(result);
-                setCurrentDate(0);
               });
             });
           }}
