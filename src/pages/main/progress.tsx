@@ -22,11 +22,16 @@ export function ProgressBar({
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    setCurrentDate(
-      new Date(userInfo?.lastFarmStart || "").getTime() +
-        new Date().getTimezoneOffset() * 60000 +
-        1000
-    );
+    if (isNaN(currentDate) || !userInfo?.lastRefClaim) {
+      setCurrentDate(0);
+    } else {
+      setCurrentDate(
+        new Date().getTime() -
+          new Date(userInfo?.lastRefClaim || "").getTime() +
+          new Date().getTimezoneOffset() * 60000 +
+          1000
+      );
+    }
     const interval = setInterval(() => {
       if (
         isNaN(
