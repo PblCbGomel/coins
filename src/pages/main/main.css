@@ -200,3 +200,7 @@
 .farming-claim-active:active {
   background-color: #aa5a357e !important;
 }
+
+.farming-claim-active .farming {
+  color: white;
+}
