@@ -66,9 +66,10 @@ export function ProgressBar() {
   return (
     <>
       <div
-        className="bar"
+        className={
+          "bar" + (currentDate / FARM_LIMIT >= 1 ? "farming-claim-active" : "")
+        }
         style={{
-          transform: "0.2s",
           background:
             currentDate / FARM_LIMIT >= 1
               ? "#DC7B4E"
@@ -96,12 +97,7 @@ export function ProgressBar() {
           }
         }}
       >
-        <p
-          className={
-            "farming" +
-            (currentDate / FARM_LIMIT >= 1 ? "farming-claim-active" : "")
-          }
-        >
+        <p className={"farming"}>
           {currentDate / FARM_LIMIT < 1 ? "Farming " : "Claim +"}
           {Math.trunc(
             (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *
