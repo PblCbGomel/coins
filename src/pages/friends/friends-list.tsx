@@ -6,19 +6,17 @@ import { GetFetch, PatchFetch } from "../../functions/fetch";
 import { UserContext, tg } from "../../App";
 import { UserInfo } from "../../interfaces/user";
 import { REF_LIMIT } from "../../constants/time-limit";
-import { CoinNotification } from "../../components/coin-notification/coin-notification";
 
 export function FriendsListPage() {
   const [leftFrinedsCount, setLeftFriendsCount] = useState(10);
   const [isModalButtonsOpened, setIsModalButtonsOpened] = useState(false);
   const [friends, setFriends] = useState<UserInfo[] | undefined>([]);
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, changeCoinNotif } = useContext(UserContext);
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() -
       new Date(user?.lastRefClaim || "").getTime() +
       new Date().getTimezoneOffset() * 60000
   );
-  const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
     GetFetch({
@@ -97,30 +95,20 @@ export function FriendsListPage() {
           <div className="friends-header">
             <h2>Your Friends</h2>
           </div>
-          {Boolean(notificationCoins) && (
-            <CoinNotification coins={notificationCoins} />
-          )}
           <div className="friends-coins-wrapper">
             <div className="friends-coins">
               <div className="friends-coins-ticket-wrapper">
                 <img
                   src="../icons/coin-main.png"
                   alt="coin"
-                  width={36}
-                  height={36}
+                  width={34}
+                  height={34}
                 />
               </div>
               <p>{user?.coinsFromRefs}</p>
             </div>
             <div className="friends-coins-text">
-              Score 10% from buddies +2.5% from their referrals Get a{" "}
-              <img
-                src="../icons/ticket.png"
-                width={17}
-                height={11}
-                alt="ticket"
-              />{" "}
-              play pass for each frends
+              Score 10% from buddies +2.5% from their referrals
             </div>
             <button
               className="friends-claim-btn"
@@ -136,8 +124,8 @@ export function FriendsListPage() {
                         id: tg?.initDataUnsafe?.user?.id || "123456789",
                       },
                     }).then((result) => {
-                      setNotificationCoins(user?.coinsFromRefs || 0);
                       setUser(result);
+                      changeCoinNotif();
                       if (result?.lastRefClaim) {
                         setCurrentDate(
                           new Date().getTime() -
@@ -153,10 +141,8 @@ export function FriendsListPage() {
               style={
                 currentDate / REF_LIMIT >= 1
                   ? {
-                      background:
-                        "linear-gradient(90deg, #9F3F09 0%, #DC7B4E 100%)",
-                      color: "white",
-                      width: "80px",
+                      backgroundColor: "#DC7B4E",
+                      width: "78px",
                     }
                   : {}
               }

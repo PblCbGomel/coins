@@ -11,16 +11,20 @@ import { FriendsListPage } from "./pages/friends/friends-list";
 import { createContext } from "react";
 import { GetFetch } from "./functions/fetch";
 import { UserInfo } from "./interfaces/user";
+import { CoinNotification } from "./components/coin-notification/coin-notification";
 
 export const UserContext = createContext<{
   user: UserInfo | undefined;
   setUser: React.Dispatch<React.SetStateAction<UserInfo | undefined>>;
-}>({ user: undefined, setUser: () => {} });
+  changeCoinNotif: Function;
+}>({ user: undefined, setUser: () => {}, changeCoinNotif: () => {} });
 
 export const tg = window.Telegram.WebApp;
 
 function App() {
   const [user, setUser] = useState<UserInfo | undefined>();
+
+  const [isCoinsNotif, setIsCoinsNotif] = useState(false);
 
   useEffect(() => {
     tg.ready();
@@ -36,8 +40,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{ user, setUser }}>
+      <UserContext.Provider
+        value={{
+          user,
+          setUser,
+          changeCoinNotif: () => {
+            setIsCoinsNotif(true);
+            setTimeout(() => {
+              setIsCoinsNotif(false);
+            }, 30000);
+          },
+        }}
+      >
         <div className="app">
+          {isCoinsNotif && <CoinNotification />}
           <Routes>
             <Route path="/main" element={<MainPage />} />
             <Route path="/upgrades" element={<UpgradesPage />} />

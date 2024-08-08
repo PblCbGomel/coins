@@ -6,7 +6,6 @@ import { ModalButtons } from "../friends/modal-buttons";
 import { useContext, useEffect, useState } from "react";
 import { UserContext, tg } from "../../App";
 import { GetFetch } from "../../functions/fetch";
-import { UserInfo } from "../../interfaces/user";
 
 export function MainPage() {
   const [isModalButtonsOpened, setIsModalButtonsOpened] = useState(false);

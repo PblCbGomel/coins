@@ -2,14 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import "./main.css";
 import { GetFetch, PatchFetch } from "../../functions/fetch";
 import { UserContext, tg } from "../../App";
-import { UserInfo } from "../../interfaces/user";
 import { FARM_LIMIT } from "../../constants/time-limit";
-import { CoinNotification } from "../../components/coin-notification/coin-notification";
 
 export function ProgressBar() {
   const [currentDate, setCurrentDate] = useState(0);
-  const [notificationCoins, setNotificationCoins] = useState(0);
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, changeCoinNotif } = useContext(UserContext);
 
   useEffect(() => {
     GetFetch({
@@ -49,9 +46,6 @@ export function ProgressBar() {
   if (!user?.lastFarmStart) {
     return (
       <>
-        {Boolean(notificationCoins) && (
-          <CoinNotification coins={notificationCoins} />
-        )}
         <div
           className="bar"
           onClick={() => {
@@ -81,9 +75,6 @@ export function ProgressBar() {
   }
   return (
     <>
-      {Boolean(notificationCoins) && (
-        <CoinNotification coins={notificationCoins} />
-      )}
       <div
         className="bar"
         style={{
@@ -95,6 +86,7 @@ export function ProgressBar() {
                 }%, #282828 0.01%, #282828 ${
                   100 - (currentDate / FARM_LIMIT) * 100
                 }%)`,
+          color: currentDate / FARM_LIMIT >= 1 ? "white" : "",
         }}
         onClick={() => {
           if (FARM_LIMIT - currentDate <= 0) {
@@ -107,13 +99,18 @@ export function ProgressBar() {
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
                 setUser(result);
-                setNotificationCoins(result?.earnedCoins);
+                changeCoinNotif();
               });
             });
           }
         }}
       >
-        <p className="farming">
+        <p
+          className={
+            "farming" +
+            (currentDate / FARM_LIMIT >= 1 ? "farming-claim-active" : "")
+          }
+        >
           {currentDate / FARM_LIMIT < 1 ? "Farming " : "Claim +"}
           {Math.trunc(
             (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *

@@ -10,18 +10,28 @@
   margin-bottom: 11px;
   position: absolute;
   top: 13px;
-  animation: 0.3s 1 slidein;
+  animation: 2.3s 1 slidein;
   font-weight: 400;
 }
 
 @keyframes slidein {
-  from {
+  0% {
     translate: 0 10vh;
     opacity: 0;
   }
 
-  to {
+  10% {
     translate: 0 0;
     opacity: 1;
+  }
+
+  90% {
+    translate: 0 0;
+    opacity: 1;
+  }
+
+  100% {
+    translate: 0 10vh;
+    opacity: 0;
   }
 }

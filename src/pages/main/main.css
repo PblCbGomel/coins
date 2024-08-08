@@ -56,13 +56,13 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
 
 .coins-count {
   font-size: 32px;
   font-weight: 700;
-  line-height: 38px;
+  line-height: 32px;
 }
 
 .main-header {
@@ -194,4 +194,8 @@
   color: white;
   text-align: center;
   width: 100%;
+}
+
+.farming-claim-active:active {
+  background-color: #aa5a357e;
 }

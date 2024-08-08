@@ -36,11 +36,12 @@
 .friends-coins {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 6px;
 }
 
 .friends-coins p {
-  font-size: 32px;
+  font-size: 24px;
+  height: 28px;
   font-weight: 700;
   color: #272727;
 }
@@ -49,13 +50,16 @@
   text-align: center;
   font-size: 14px;
   vertical-align: text-bottom;
+  width: 162px;
+  color: #272727;
 }
 
 .friends-claim-btn {
   border: none;
   outline: inherit;
   background-color: #f6f6f6;
-  color: #aeaeae;
+  color: #ffffff;
+  font-weight: 500;
   width: 158px;
   height: 44px;
   display: flex;
