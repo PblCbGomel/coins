@@ -3,22 +3,10 @@ import { ProfileInfo } from "./profile-info";
 import "./main.css";
 import { ProgressBar } from "./progress";
 import { ModalButtons } from "../friends/modal-buttons";
-import { useContext, useEffect, useState } from "react";
-import { UserContext, tg } from "../../App";
-import { GetFetch } from "../../functions/fetch";
+import { useState } from "react";
 
 export function MainPage() {
   const [isModalButtonsOpened, setIsModalButtonsOpened] = useState(false);
-  const { user, setUser } = useContext(UserContext);
-
-  useEffect(() => {
-    GetFetch({
-      path: "/api/user",
-      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-    }).then((result) => {
-      setUser(result);
-    });
-  }, [isModalButtonsOpened]);
 
   return (
     <div className="main-page-wrapper">

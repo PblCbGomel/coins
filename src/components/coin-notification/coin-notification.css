@@ -10,6 +10,7 @@
   margin-bottom: 11px;
   position: absolute;
   top: 13px;
+  opacity: 0;
   animation: 2.3s 1 slidein;
   font-weight: 400;
 }

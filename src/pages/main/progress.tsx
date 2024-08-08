@@ -5,23 +5,13 @@ import { UserContext, tg } from "../../App";
 import { FARM_LIMIT } from "../../constants/time-limit";
 
 export function ProgressBar() {
-  const [currentDate, setCurrentDate] = useState(0);
   const { user, setUser, changeCoinNotif } = useContext(UserContext);
-
-  useEffect(() => {
-    GetFetch({
-      path: "/api/user",
-      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-    }).then((result) => {
-      setUser(result);
-      setCurrentDate(
-        new Date().getTime() -
-          new Date(result?.lastFarmStart || "").getTime() +
-          new Date().getTimezoneOffset() * 60000 +
-          1000
-      );
-    });
-  }, []);
+  const [currentDate, setCurrentDate] = useState(
+    new Date().getTime() -
+      new Date(user?.lastFarmStart || "").getTime() +
+      new Date().getTimezoneOffset() * 60000 +
+      1000
+  );
 
   useEffect(() => {
     setCurrentDate(

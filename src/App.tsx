@@ -35,8 +35,12 @@ function App() {
     }).then((result) => {
       setUser(result);
     });
+
+    setInterval(() => {
+      console.log(isCoinsNotif);
+    });
     //postEvent("web_app_set_header_color", { color: "#f3f3f3" });
-  });
+  }, [isCoinsNotif]);
 
   return (
     <BrowserRouter>
