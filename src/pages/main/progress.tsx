@@ -56,9 +56,17 @@ export function ProgressBar({
               GetFetch({
                 path: "/api/user",
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-              }).then((result) => {
-                setUserInfo(result);
-              });
+              })
+                .then((result) => {
+                  setUserInfo(result);
+                })
+                .then(() => {
+                  setCurrentDate(
+                    new Date(userInfo?.lastFarmStart || "").getTime() +
+                      new Date().getTimezoneOffset() * 60000 +
+                      1000
+                  );
+                });
             });
           }}
         >
