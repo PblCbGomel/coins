@@ -11,7 +11,7 @@
   position: absolute;
   top: 13px;
   opacity: 0;
-  animation: 2.3s 1 slidein;
+  animation: 3.3s 1 slidein;
   font-weight: 400;
   z-index: 100;
 }
@@ -22,7 +22,12 @@
     opacity: 0;
   }
 
-  10% {
+  7% {
+    translate: 0 0;
+    opacity: 1;
+  }
+
+  15% {
     translate: 0 0;
     opacity: 1;
   }

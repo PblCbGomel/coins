@@ -111,9 +111,18 @@ export function FriendsListPage() {
               Score 10% from buddies +2.5% from their referrals
             </div>
             <button
-              className="friends-claim-btn"
+              className={
+                "friends-claim-btn " +
+                (REF_LIMIT - currentDate <= 0 && user && user?.coinsFromRefs > 0
+                  ? "friends-claim-btn-active"
+                  : "")
+              }
               onClick={() => {
-                if (REF_LIMIT - currentDate <= 0) {
+                if (
+                  REF_LIMIT - currentDate <= 0 &&
+                  user &&
+                  user?.coinsFromRefs > 0
+                ) {
                   PatchFetch({
                     path: "/api/claimRefCoins",
                     query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
@@ -139,7 +148,7 @@ export function FriendsListPage() {
                 }
               }}
               style={
-                currentDate / REF_LIMIT >= 1
+                currentDate / REF_LIMIT >= 1 && user && user?.coinsFromRefs > 0
                   ? {
                       backgroundColor: "#DC7B4E",
                       width: "78px",

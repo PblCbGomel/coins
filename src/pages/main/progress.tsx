@@ -67,7 +67,7 @@ export function ProgressBar() {
     <>
       <div
         className={
-          "bar" + (currentDate / FARM_LIMIT >= 1 ? "farming-claim-active" : "")
+          "bar " + (currentDate / FARM_LIMIT >= 1 ? "farming-claim-active" : "")
         }
         style={{
           background:

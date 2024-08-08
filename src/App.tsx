@@ -49,7 +49,7 @@ function App() {
             setIsCoinsNotif(true);
             setTimeout(() => {
               setIsCoinsNotif(false);
-            }, 2400);
+            }, 3400);
           },
         }}
       >
