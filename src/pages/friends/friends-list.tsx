@@ -16,7 +16,7 @@ export function FriendsListPage() {
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() -
       new Date(userInfo?.lastRefClaim || "").getTime() +
-      new Date().getTimezoneOffset() * 1000
+      new Date().getTimezoneOffset() * 60000
   );
   const [notificationCoins, setNotificationCoins] = useState(0);
 
@@ -24,13 +24,13 @@ export function FriendsListPage() {
     setCurrentDate(
       new Date().getTime() -
         new Date(userInfo?.lastRefClaim || "").getTime() +
-        new Date().getTimezoneOffset() * 1000
+        new Date().getTimezoneOffset() * 60000
     );
     const interval = setInterval(() => {
       setCurrentDate(
         new Date().getTime() -
           new Date(userInfo?.lastRefClaim || "").getTime() +
-          new Date().getTimezoneOffset() * 1000
+          new Date().getTimezoneOffset() * 60000
       );
     }, 5000);
     return () => {

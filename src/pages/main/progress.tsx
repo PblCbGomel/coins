@@ -16,7 +16,7 @@ export function ProgressBar({
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() -
       new Date(userInfo?.lastFarmStart || "").getTime() +
-      new Date().getTimezoneOffset() * 1000
+      new Date().getTimezoneOffset() * 60000
   );
   const [notificationCoins, setNotificationCoins] = useState(0);
 
@@ -24,13 +24,13 @@ export function ProgressBar({
     setCurrentDate(
       new Date().getTime() -
         new Date(userInfo?.lastFarmStart || "").getTime() +
-        new Date().getTimezoneOffset() * 1000
+        new Date().getTimezoneOffset() * 60000
     );
     const interval = setInterval(() => {
       setCurrentDate(
         new Date().getTime() -
           new Date(userInfo?.lastFarmStart || "").getTime() +
-          new Date().getTimezoneOffset() * 1000
+          new Date().getTimezoneOffset() * 60000
       );
     }, 1000);
     return () => {
