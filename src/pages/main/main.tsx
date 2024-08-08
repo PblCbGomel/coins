@@ -58,7 +58,7 @@ export function MainPage() {
             />
           </button>
         </div> */}
-        <ProgressBar />
+        <ProgressBar setGlobalUser={setUserInfo} />
         <ModalButtons
           setIsModalButtonsOpened={setIsModalButtonsOpened}
           isModalButtonsOpened={isModalButtonsOpened}
