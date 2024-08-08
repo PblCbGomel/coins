@@ -40,7 +40,7 @@ export function ModalButtons({
             }
           }}
         >
-          <img src={"./icons/send.png"} width={13} height={12} alt="send" />
+          <img src={"../icons/send.png"} width={13} height={12} alt="send" />
           <p>Send invite</p>
         </button>
         <button
@@ -53,7 +53,7 @@ export function ModalButtons({
             );
           }}
         >
-          <img src={"./icons/copy.png"} width={13} height={15} alt="copy" />
+          <img src={"../icons/copy.png"} width={13} height={15} alt="copy" />
           <p>Copy link</p>
         </button>
         <button
