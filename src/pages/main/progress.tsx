@@ -7,11 +7,12 @@ import { FARM_LIMIT } from "../../constants/time-limit";
 import { CoinNotification } from "../../components/coin-notification/coin-notification";
 
 export function ProgressBar({
-  setGlobalUser,
+  setUserInfo,
+  userInfo,
 }: {
-  setGlobalUser: React.Dispatch<React.SetStateAction<UserInfo | undefined>>;
+  userInfo: UserInfo | undefined;
+  setUserInfo: React.Dispatch<React.SetStateAction<UserInfo | undefined>>;
 }) {
-  const [userInfo, setUserInfo] = useState<UserInfo | undefined>();
   const [currentDate, setCurrentDate] = useState(0);
   const [notificationCoins, setNotificationCoins] = useState(0);
 
@@ -68,7 +69,6 @@ export function ProgressBar({
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
                 setUserInfo(result);
-                setGlobalUser(result);
                 setCurrentDate(
                   new Date().getTime() -
                     new Date(result?.lastFarmStart || "").getTime() +
