@@ -21,7 +21,7 @@ export function FriendsListPage() {
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    if (isNaN(currentDate)) {
+    if (isNaN(currentDate) || !userInfo?.lastRefClaim) {
       setCurrentDate(0);
     } else {
       setCurrentDate(
