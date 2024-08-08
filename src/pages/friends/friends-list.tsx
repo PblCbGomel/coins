@@ -16,11 +16,12 @@ export function FriendsListPage() {
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() -
       new Date(userInfo?.lastRefClaim || "").getTime() +
-      new Date().getTimezoneOffset() * 60000
+      new Date().getTimezoneOffset() * 60000 || 0
   );
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
+    console.log(userInfo?.lastRefClaim, currentDate);
     setCurrentDate(
       new Date().getTime() -
         new Date(userInfo?.lastRefClaim || "").getTime() +
