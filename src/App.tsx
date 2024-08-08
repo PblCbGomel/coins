@@ -63,7 +63,17 @@ function App() {
             <Route
               path="friends"
               children={[
-                <Route key={"main-fiends"} path="" element={<FriendsPage />} />,
+                <Route
+                  key={"main-fiends"}
+                  path=""
+                  element={
+                    user && user?.refCount > 0 ? (
+                      <Navigate to="list-fiends" replace />
+                    ) : (
+                      <FriendsPage />
+                    )
+                  }
+                />,
                 <Route
                   key={"list-fiends"}
                   path="list"
