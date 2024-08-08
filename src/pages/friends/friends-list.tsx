@@ -21,16 +21,13 @@ export function FriendsListPage() {
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    if (isNaN(currentDate) || !userInfo?.lastRefClaim) {
-      setCurrentDate(0);
-    } else {
-      setCurrentDate(
-        new Date().getTime() -
-          new Date(userInfo?.lastRefClaim || "").getTime() +
-          new Date().getTimezoneOffset() * 60000 +
-          1000
-      );
-    }
+    setCurrentDate(
+      new Date().getTime() -
+        new Date(userInfo?.lastRefClaim || "").getTime() +
+        new Date().getTimezoneOffset() * 60000 +
+        1000
+    );
+
     const interval = setInterval(() => {
       setCurrentDate(
         new Date().getTime() -
@@ -56,6 +53,12 @@ export function FriendsListPage() {
       query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
     }).then((result) => {
       setUserInfo(result);
+      setCurrentDate(
+        new Date().getTime() -
+          new Date(result?.lastRefClaim || "").getTime() +
+          new Date().getTimezoneOffset() * 60000 +
+          1000
+      );
     });
     const interval = setInterval(() => {
       GetFetch({
@@ -63,6 +66,12 @@ export function FriendsListPage() {
         query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
       }).then((result) => {
         setFriends(result);
+        setCurrentDate(
+          new Date().getTime() -
+            new Date(result?.lastRefClaim || "").getTime() +
+            new Date().getTimezoneOffset() * 60000 +
+            1000
+        );
       });
       GetFetch({
         path: "/api/user",
