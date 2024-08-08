@@ -32,12 +32,16 @@ export function FriendsListPage() {
       query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
     }).then((result) => {
       setUserInfo(result);
-      setCurrentDate(
-        new Date().getTime() -
-          new Date(result?.lastRefClaim || "").getTime() +
-          new Date().getTimezoneOffset() * 60000 +
-          1000
-      );
+      if (result?.lastRefClaim) {
+        setCurrentDate(
+          new Date().getTime() -
+            new Date(result?.lastRefClaim || "").getTime() +
+            new Date().getTimezoneOffset() * 60000 +
+            1000
+        );
+      } else {
+        setCurrentDate(REF_LIMIT);
+      }
     });
     const interval = setInterval(() => {
       GetFetch({
@@ -51,12 +55,16 @@ export function FriendsListPage() {
         query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
       }).then((result) => {
         setUserInfo(result);
-        setCurrentDate(
-          new Date().getTime() -
-            new Date(result?.lastRefClaim || "").getTime() +
-            new Date().getTimezoneOffset() * 60000 +
-            1000
-        );
+        if (result?.lastRefClaim) {
+          setCurrentDate(
+            new Date().getTime() -
+              new Date(result?.lastRefClaim || "").getTime() +
+              new Date().getTimezoneOffset() * 60000 +
+              1000
+          );
+        } else {
+          setCurrentDate(REF_LIMIT);
+        }
       });
     }, 60000);
     return () => {
@@ -66,12 +74,16 @@ export function FriendsListPage() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentDate(
-        new Date().getTime() -
-          new Date(userInfo?.lastRefClaim || "").getTime() +
-          new Date().getTimezoneOffset() * 60000 +
-          1000
-      );
+      if (userInfo?.lastRefClaim) {
+        setCurrentDate(
+          new Date().getTime() -
+            new Date(userInfo?.lastRefClaim || "").getTime() +
+            new Date().getTimezoneOffset() * 60000 +
+            1000
+        );
+      } else {
+        setCurrentDate(REF_LIMIT);
+      }
     }, 5000);
     return () => {
       clearInterval(interval);
@@ -126,6 +138,14 @@ export function FriendsListPage() {
                     }).then((result) => {
                       setNotificationCoins(userInfo?.coinsFromRefs || 0);
                       setUserInfo(result);
+                      if (result?.lastRefClaim) {
+                        setCurrentDate(
+                          new Date().getTime() -
+                            new Date(result?.lastRefClaim || "").getTime() +
+                            new Date().getTimezoneOffset() * 60000 +
+                            1000
+                        );
+                      }
                     });
                   });
                 }
