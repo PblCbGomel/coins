@@ -6,7 +6,13 @@ import { UserInfo } from "../../interfaces/user";
 import { FARM_LIMIT } from "../../constants/time-limit";
 import { CoinNotification } from "../../components/coin-notification/coin-notification";
 
-export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
+export function ProgressBar({
+  userInfo,
+  setUserInfo,
+}: {
+  userInfo: UserInfo | undefined;
+  setUserInfo: React.Dispatch<React.SetStateAction<UserInfo | undefined>>;
+}) {
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() - new Date(userInfo?.lastFarmStart || "").getTime()
   );
@@ -26,6 +32,13 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
           PatchFetch({
             path: "/api/farmStart",
             query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+          }).then(() => {
+            GetFetch({
+              path: "/api/user",
+              query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+            }).then((result) => {
+              setUserInfo(result);
+            });
           });
         }}
       >
@@ -55,6 +68,13 @@ export function ProgressBar({ userInfo }: { userInfo: UserInfo | undefined }) {
           PatchFetch({
             path: "/api/collect",
             query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+          }).then(() => {
+            GetFetch({
+              path: "/api/user",
+              query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+            }).then((result) => {
+              setUserInfo(result);
+            });
           });
         }
       }}

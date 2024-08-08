@@ -21,20 +21,6 @@ export function MainPage() {
     });
   }, [isModalButtonsOpened]);
 
-  useEffect(() => {
-    const getUserInfoTime = setInterval(() => {
-      GetFetch({
-        path: "/api/user",
-        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-      }).then((result) => {
-        setUserInfo(result);
-      });
-    }, 1000);
-    return () => {
-      clearInterval(getUserInfoTime);
-    };
-  });
-
   return (
     <div className="main-page-wrapper">
       <div className="main-header">
@@ -72,7 +58,7 @@ export function MainPage() {
             />
           </button>
         </div> */}
-        <ProgressBar userInfo={userInfo} />
+        <ProgressBar userInfo={userInfo} setUserInfo={setUserInfo} />
         <ModalButtons
           setIsModalButtonsOpened={setIsModalButtonsOpened}
           isModalButtonsOpened={isModalButtonsOpened}
