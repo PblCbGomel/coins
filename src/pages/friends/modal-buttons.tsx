@@ -47,7 +47,7 @@ export function ModalButtons({
           className="copy-link-btn"
           onClick={() => {
             navigator.clipboard.writeText(
-              `https://t.me/botname?start=${
+              `https://t.me/test002949402bot?start=${
                 tg?.initDataUnsafe?.user?.id || "123456789"
               }`
             );
