@@ -61,9 +61,18 @@ export function ProgressBar() {
               GetFetch({
                 path: "/api/user",
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-              }).then((result) => {
-                setUserInfo(result);
-              });
+              })
+                .then((result) => {
+                  setUserInfo(result);
+                })
+                .then(() => {
+                  setCurrentDate(
+                    new Date().getTime() -
+                      new Date(userInfo?.lastRefClaim || "").getTime() +
+                      new Date().getTimezoneOffset() * 60000 +
+                      1000
+                  );
+                });
             });
           }}
         >
@@ -104,7 +113,6 @@ export function ProgressBar() {
                 })
                 .then(() => {
                   setNotificationCoins(userInfo?.earnedCoins);
-                  setCurrentDate(0);
                 });
             });
           }
