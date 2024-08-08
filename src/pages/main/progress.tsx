@@ -25,12 +25,16 @@ export function ProgressBar() {
         setUserInfo(result);
       })
       .then(() => {
-        setCurrentDate(
-          new Date().getTime() -
-            new Date(userInfo?.lastRefClaim || "").getTime() +
-            new Date().getTimezoneOffset() * 60000 +
-            1000
-        );
+        if (userInfo?.earnedCoins) {
+          setTimeout(() => {
+            setCurrentDate(
+              new Date().getTime() -
+                new Date(userInfo?.lastRefClaim || "").getTime() +
+                new Date().getTimezoneOffset() * 60000 +
+                1000
+            );
+          }, 0);
+        }
       });
   }, []);
 
