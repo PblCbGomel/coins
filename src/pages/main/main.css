@@ -198,6 +198,5 @@
 }
 
 .farming-claim-active:active {
-  transform: 0.2s;
-  background-color: #aa5a357e;
+  background-color: #aa5a357e !important;
 }

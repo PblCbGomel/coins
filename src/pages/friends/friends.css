@@ -70,7 +70,7 @@
 }
 
 .friends-claim-btn-active:active {
-  background-color: #aa5a357e;
+  background-color: #aa5a357e !important;
 }
 
 .friends-count-header {
