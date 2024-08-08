@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./main.css";
 import { GetFetch, PatchFetch } from "../../functions/fetch";
-import { tg } from "../../App";
+import { UserContext, tg } from "../../App";
 import { UserInfo } from "../../interfaces/user";
 import { FARM_LIMIT } from "../../constants/time-limit";
 import { CoinNotification } from "../../components/coin-notification/coin-notification";
 
-export function ProgressBar({
-  setUserInfo,
-  userInfo,
-}: {
-  userInfo: UserInfo | undefined;
-  setUserInfo: React.Dispatch<React.SetStateAction<UserInfo | undefined>>;
-}) {
+export function ProgressBar() {
   const [currentDate, setCurrentDate] = useState(0);
   const [notificationCoins, setNotificationCoins] = useState(0);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     GetFetch({
       path: "/api/user",
       query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
     }).then((result) => {
-      setUserInfo(result);
+      setUser(result);
       setCurrentDate(
         new Date().getTime() -
           new Date(result?.lastFarmStart || "").getTime() +
@@ -34,14 +29,14 @@ export function ProgressBar({
   useEffect(() => {
     setCurrentDate(
       new Date().getTime() -
-        new Date(userInfo?.lastFarmStart || "").getTime() +
+        new Date(user?.lastFarmStart || "").getTime() +
         new Date().getTimezoneOffset() * 60000 +
         1000
     );
     const interval = setInterval(() => {
       setCurrentDate(
         new Date().getTime() -
-          new Date(userInfo?.lastFarmStart || "").getTime() +
+          new Date(user?.lastFarmStart || "").getTime() +
           new Date().getTimezoneOffset() * 60000 +
           1000
       );
@@ -49,9 +44,9 @@ export function ProgressBar({
     return () => {
       clearInterval(interval);
     };
-  }, [userInfo]);
+  }, [user]);
 
-  if (!userInfo?.lastFarmStart) {
+  if (!user?.lastFarmStart) {
     return (
       <>
         {Boolean(notificationCoins) && (
@@ -68,7 +63,7 @@ export function ProgressBar({
                 path: "/api/user",
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
-                setUserInfo(result);
+                setUser(result);
                 setCurrentDate(
                   new Date().getTime() -
                     new Date(result?.lastFarmStart || "").getTime() +
@@ -111,7 +106,7 @@ export function ProgressBar({
                 path: "/api/user",
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
-                setUserInfo(result);
+                setUser(result);
                 setNotificationCoins(result?.earnedCoins);
               });
             });
@@ -122,7 +117,7 @@ export function ProgressBar({
           {currentDate / FARM_LIMIT < 1 ? "Farming " : "Claim +"}
           {Math.trunc(
             (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *
-              userInfo?.earnedCoins *
+              user?.earnedCoins *
               1000
           ) /
             1000 <
@@ -130,7 +125,7 @@ export function ProgressBar({
             ? "0.000"
             : Math.trunc(
                 (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *
-                  userInfo?.earnedCoins *
+                  user?.earnedCoins *
                   1000
               ) / 1000}
           PP

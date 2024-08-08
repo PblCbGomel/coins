@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
-import './main.css';
-import { GetFetch } from '../../functions/fetch';
-import { tg } from '../../App';
-import { UserInfo } from '../../interfaces/user';
+import { useContext } from "react";
+import "./main.css";
+import { UserContext } from "../../App";
 
-export function CoinsInfo({ userInfo }: { userInfo: UserInfo | undefined }) {
+export function CoinsInfo() {
+  const { user } = useContext(UserContext);
   return (
     <div className="coins-wrapper">
-      <img alt="coin" src="./icons/coin-main.png" width={36} height={36} />{' '}
-      <p className="coins-count">{userInfo?.coins}</p>
+      <img alt="coin" src="./icons/coin-main.png" width={36} height={36} />{" "}
+      <p className="coins-count">{user?.coins}</p>
     </div>
   );
 }

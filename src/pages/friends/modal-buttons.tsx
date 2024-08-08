@@ -1,19 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import "./modal.css";
-import { tg } from "../../App";
-import { GetFetch, PatchFetch } from "../../functions/fetch";
-import { UserInfo } from "../../interfaces/user";
+import { UserContext, tg } from "../../App";
+import { PatchFetch } from "../../functions/fetch";
+import { useContext } from "react";
 
 export function ModalButtons({
   setIsModalButtonsOpened,
   isModalButtonsOpened,
-  userInfo,
 }: {
   setIsModalButtonsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   isModalButtonsOpened: boolean;
-  userInfo?: UserInfo;
 }) {
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
   return (
     <>
@@ -35,7 +34,7 @@ export function ModalButtons({
               path: "/api/reflink",
               query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
             });
-            if (userInfo && userInfo.refCount > 0) {
+            if (user && user.refCount > 0) {
               navigate("/friends/list");
             }
           }}

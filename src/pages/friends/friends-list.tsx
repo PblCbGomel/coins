@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FriendCard } from "./friend-card";
 import "./friends.css";
 import { ModalButtons } from "./modal-buttons";
 import { GetFetch, PatchFetch } from "../../functions/fetch";
-import { tg } from "../../App";
+import { UserContext, tg } from "../../App";
 import { UserInfo } from "../../interfaces/user";
 import { REF_LIMIT } from "../../constants/time-limit";
 import { CoinNotification } from "../../components/coin-notification/coin-notification";
@@ -12,10 +12,10 @@ export function FriendsListPage() {
   const [leftFrinedsCount, setLeftFriendsCount] = useState(10);
   const [isModalButtonsOpened, setIsModalButtonsOpened] = useState(false);
   const [friends, setFriends] = useState<UserInfo[] | undefined>([]);
-  const [userInfo, setUserInfo] = useState<UserInfo | undefined>();
+  const { user, setUser } = useContext(UserContext);
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() -
-      new Date(userInfo?.lastRefClaim || "").getTime() +
+      new Date(user?.lastRefClaim || "").getTime() +
       new Date().getTimezoneOffset() * 60000
   );
   const [notificationCoins, setNotificationCoins] = useState(0);
@@ -31,7 +31,7 @@ export function FriendsListPage() {
       path: "/api/user",
       query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
     }).then((result) => {
-      setUserInfo(result);
+      setUser(result);
       if (result?.lastRefClaim) {
         setCurrentDate(
           new Date().getTime() -
@@ -54,7 +54,7 @@ export function FriendsListPage() {
         path: "/api/user",
         query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
       }).then((result) => {
-        setUserInfo(result);
+        setUser(result);
         if (result?.lastRefClaim) {
           setCurrentDate(
             new Date().getTime() -
@@ -74,10 +74,10 @@ export function FriendsListPage() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (userInfo?.lastRefClaim) {
+      if (user?.lastRefClaim) {
         setCurrentDate(
           new Date().getTime() -
-            new Date(userInfo?.lastRefClaim || "").getTime() +
+            new Date(user?.lastRefClaim || "").getTime() +
             new Date().getTimezoneOffset() * 60000 +
             1000
         );
@@ -88,7 +88,7 @@ export function FriendsListPage() {
     return () => {
       clearInterval(interval);
     };
-  }, [userInfo]);
+  }, [user]);
 
   return (
     <>
@@ -110,7 +110,7 @@ export function FriendsListPage() {
                   height={36}
                 />
               </div>
-              <p>{userInfo?.coinsFromRefs}</p>
+              <p>{user?.coinsFromRefs}</p>
             </div>
             <div className="friends-coins-text">
               Score 10% from buddies +2.5% from their referrals Get a{" "}
@@ -136,8 +136,8 @@ export function FriendsListPage() {
                         id: tg?.initDataUnsafe?.user?.id || "123456789",
                       },
                     }).then((result) => {
-                      setNotificationCoins(userInfo?.coinsFromRefs || 0);
-                      setUserInfo(result);
+                      setNotificationCoins(user?.coinsFromRefs || 0);
+                      setUser(result);
                       if (result?.lastRefClaim) {
                         setCurrentDate(
                           new Date().getTime() -
@@ -194,8 +194,7 @@ export function FriendsListPage() {
               setIsModalButtonsOpened(true);
             }}
           >
-            Invite a friend ({leftFrinedsCount - (userInfo?.refCount || 0)}{" "}
-            left)
+            Invite a friend ({leftFrinedsCount - (user?.refCount || 0)} left)
           </button>
         </div>
       </div>
