@@ -15,20 +15,15 @@ export function ProgressBar() {
     GetFetch({
       path: "/api/user",
       query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-    })
-      .then((result) => {
-        setUserInfo(result);
-      })
-      .then(() => {
-        setTimeout(() => {
-          setCurrentDate(
-            new Date().getTime() -
-              new Date(userInfo?.lastRefClaim || "").getTime() +
-              new Date().getTimezoneOffset() * 60000 +
-              1000
-          );
-        }, 0);
-      });
+    }).then((result) => {
+      setUserInfo(result);
+      setCurrentDate(
+        new Date().getTime() -
+          new Date(result?.lastRefClaim || "").getTime() +
+          new Date().getTimezoneOffset() * 60000 +
+          1000
+      );
+    });
   }, []);
 
   useEffect(() => {
@@ -67,18 +62,15 @@ export function ProgressBar() {
               GetFetch({
                 path: "/api/user",
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-              })
-                .then((result) => {
-                  setUserInfo(result);
-                })
-                .then(() => {
-                  setCurrentDate(
-                    new Date().getTime() -
-                      new Date(userInfo?.lastRefClaim || "").getTime() +
-                      new Date().getTimezoneOffset() * 60000 +
-                      1000
-                  );
-                });
+              }).then((result) => {
+                setUserInfo(result);
+                setCurrentDate(
+                  new Date().getTime() -
+                    new Date(result?.lastRefClaim || "").getTime() +
+                    new Date().getTimezoneOffset() * 60000 +
+                    1000
+                );
+              });
             });
           }}
         >
@@ -113,13 +105,10 @@ export function ProgressBar() {
               GetFetch({
                 path: "/api/user",
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-              })
-                .then((result) => {
-                  setUserInfo(result);
-                })
-                .then(() => {
-                  setNotificationCoins(userInfo?.earnedCoins);
-                });
+              }).then((result) => {
+                setUserInfo(result);
+                setNotificationCoins(result?.earnedCoins);
+              });
             });
           }
         }}
