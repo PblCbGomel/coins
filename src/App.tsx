@@ -36,9 +36,6 @@ function App() {
       setUser(result);
     });
 
-    setInterval(() => {
-      console.log(isCoinsNotif);
-    });
     //postEvent("web_app_set_header_color", { color: "#f3f3f3" });
   }, [isCoinsNotif]);
 
@@ -52,7 +49,7 @@ function App() {
             setIsCoinsNotif(true);
             setTimeout(() => {
               setIsCoinsNotif(false);
-            }, 30000);
+            }, 2400);
           },
         }}
       >

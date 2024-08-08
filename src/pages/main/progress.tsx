@@ -68,6 +68,7 @@ export function ProgressBar() {
       <div
         className="bar"
         style={{
+          transform: "0.2s",
           background:
             currentDate / FARM_LIMIT >= 1
               ? "#DC7B4E"

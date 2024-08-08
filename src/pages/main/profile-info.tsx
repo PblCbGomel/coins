@@ -1,15 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { tg } from "../../App";
+import { UserContext, tg } from "../../App";
 import { Avatar } from "../../components/avatar/avatar";
+import { useContext } from "react";
 
 export function ProfileInfo() {
+  const { user } = useContext(UserContext);
   return (
     <div className="profile-info">
       <div className="profile-tg-info">
-        <Avatar
-          size="66px"
-          name={tg?.initDataUnsafe?.user?.username || "username"}
-        />
+        <Avatar size="66px" name={user?.name || "username"} />
         <div className="profile-text">
           <div className="nickname">
             {tg?.initDataUnsafe?.user?.username || "username"}

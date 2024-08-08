@@ -69,6 +69,11 @@
   font-size: 16px;
 }
 
+.friends-claim-btn-active:active {
+  transform: 0.2s;
+  background-color: #aa5a357e;
+}
+
 .friends-count-header {
   display: flex;
   width: 100%;

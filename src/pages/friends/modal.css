@@ -18,7 +18,7 @@
 }
 
 .modal-wrapper.modal-wrapper-active ~ .modal-btns-wrapper {
-  transition: 0.5s;
+  transition: 0.3s;
   bottom: 0;
 }
 
@@ -54,7 +54,7 @@
   justify-content: center;
   width: 95%;
   height: 55px;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 16px;
   border-radius: 27.5px;
   gap: 4px;

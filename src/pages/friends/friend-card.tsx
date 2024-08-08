@@ -1,5 +1,5 @@
-import { Avatar } from '../../components/avatar/avatar';
-import './friends.css';
+import { Avatar } from "../../components/avatar/avatar";
+import "./friends.css";
 
 export interface Friend {
   nickname: string;
@@ -15,7 +15,8 @@ export function FriendCard({ nickname, coins, refCount }: Friend) {
         <div className="text-info">
           <h4>{nickname}</h4>
           <p>
-            <img src="../navigation/friends.svg" width={9} height={9} /> +{refCount}
+            <img src="../navigation/friends.svg" width={9} height={9} />{" "}
+            {refCount}
           </p>
         </div>
       </div>
