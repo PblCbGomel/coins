@@ -120,6 +120,7 @@ export function FriendsListPage() {
                     }).then((result) => {
                       setNotificationCoins(userInfo?.coinsFromRefs || 0);
                       setUserInfo(result);
+                      setCurrentDate(0);
                     });
                   });
                 }

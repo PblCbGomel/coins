@@ -99,6 +99,7 @@ export function ProgressBar({
                 })
                 .then(() => {
                   setNotificationCoins(userInfo?.earnedCoins);
+                  setCurrentDate(0);
                 });
             });
           }
