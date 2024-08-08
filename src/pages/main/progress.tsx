@@ -8,12 +8,7 @@ import { CoinNotification } from "../../components/coin-notification/coin-notifi
 
 export function ProgressBar() {
   const [userInfo, setUserInfo] = useState<UserInfo | undefined>();
-  const [currentDate, setCurrentDate] = useState(
-    new Date().getTime() -
-      new Date(userInfo?.lastFarmStart || "").getTime() +
-      new Date().getTimezoneOffset() * 60000 +
-      1000
-  );
+  const [currentDate, setCurrentDate] = useState(0);
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
@@ -25,16 +20,14 @@ export function ProgressBar() {
         setUserInfo(result);
       })
       .then(() => {
-        if (userInfo?.earnedCoins) {
-          setTimeout(() => {
-            setCurrentDate(
-              new Date().getTime() -
-                new Date(userInfo?.lastRefClaim || "").getTime() +
-                new Date().getTimezoneOffset() * 60000 +
-                1000
-            );
-          }, 0);
-        }
+        setTimeout(() => {
+          setCurrentDate(
+            new Date().getTime() -
+              new Date(userInfo?.lastRefClaim || "").getTime() +
+              new Date().getTimezoneOffset() * 60000 +
+              1000
+          );
+        }, 0);
       });
   }, []);
 
