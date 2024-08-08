@@ -14,23 +14,33 @@ export function ProgressBar({
   setUserInfo: React.Dispatch<React.SetStateAction<UserInfo | undefined>>;
 }) {
   const [currentDate, setCurrentDate] = useState(
-    new Date().getTime() -
-      new Date(userInfo?.lastFarmStart || "").getTime() +
-      new Date().getTimezoneOffset() * 60000
+    FARM_LIMIT <
+      new Date().getTime() - new Date(userInfo?.lastFarmStart || "").getTime()
+      ? FARM_LIMIT
+      : new Date().getTime() -
+          new Date(userInfo?.lastFarmStart || "").getTime() +
+          new Date().getTimezoneOffset() * 60000
   );
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
     setCurrentDate(
-      new Date().getTime() -
-        new Date(userInfo?.lastFarmStart || "").getTime() +
-        new Date().getTimezoneOffset() * 60000
+      FARM_LIMIT <
+        new Date().getTime() - new Date(userInfo?.lastFarmStart || "").getTime()
+        ? FARM_LIMIT
+        : new Date().getTime() -
+            new Date(userInfo?.lastFarmStart || "").getTime() +
+            new Date().getTimezoneOffset() * 60000
     );
     const interval = setInterval(() => {
       setCurrentDate(
-        new Date().getTime() -
-          new Date(userInfo?.lastFarmStart || "").getTime() +
-          new Date().getTimezoneOffset() * 60000
+        FARM_LIMIT <
+          new Date().getTime() -
+            new Date(userInfo?.lastFarmStart || "").getTime()
+          ? FARM_LIMIT
+          : new Date().getTime() -
+              new Date(userInfo?.lastFarmStart || "").getTime() +
+              new Date().getTimezoneOffset() * 60000
       );
     }, 1000);
     return () => {

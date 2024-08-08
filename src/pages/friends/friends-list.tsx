@@ -22,15 +22,22 @@ export function FriendsListPage() {
 
   useEffect(() => {
     setCurrentDate(
-      new Date().getTime() -
-        new Date(userInfo?.lastRefClaim || "").getTime() +
-        new Date().getTimezoneOffset() * 60000
+      REF_LIMIT <
+        new Date().getTime() - new Date(userInfo?.lastFarmStart || "").getTime()
+        ? REF_LIMIT
+        : new Date().getTime() -
+            new Date(userInfo?.lastFarmStart || "").getTime() +
+            new Date().getTimezoneOffset() * 60000
     );
     const interval = setInterval(() => {
       setCurrentDate(
-        new Date().getTime() -
-          new Date(userInfo?.lastRefClaim || "").getTime() +
-          new Date().getTimezoneOffset() * 60000
+        REF_LIMIT <
+          new Date().getTime() -
+            new Date(userInfo?.lastFarmStart || "").getTime()
+          ? REF_LIMIT
+          : new Date().getTime() -
+              new Date(userInfo?.lastFarmStart || "").getTime() +
+              new Date().getTimezoneOffset() * 60000
       );
     }, 5000);
     return () => {
