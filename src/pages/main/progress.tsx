@@ -28,12 +28,23 @@ export function ProgressBar({
         1000
     );
     const interval = setInterval(() => {
-      setCurrentDate(
-        new Date().getTime() -
-          new Date(userInfo?.lastFarmStart || "").getTime() +
-          new Date().getTimezoneOffset() * 60000 +
-          1000
-      );
+      if (
+        isNaN(
+          new Date().getTime() -
+            new Date(userInfo?.lastFarmStart || "").getTime() +
+            new Date().getTimezoneOffset() * 60000 +
+            1000
+        )
+      ) {
+        setCurrentDate(0);
+      } else {
+        setCurrentDate(
+          new Date().getTime() -
+            new Date(userInfo?.lastFarmStart || "").getTime() +
+            new Date().getTimezoneOffset() * 60000 +
+            1000
+        );
+      }
     }, 1000);
     return () => {
       clearInterval(interval);
@@ -76,7 +87,7 @@ export function ProgressBar({
         className="bar"
         style={{
           background:
-            currentDate / FARM_LIMIT >= 1 && !Number.isNaN(currentDate)
+            currentDate / FARM_LIMIT >= 1
               ? "#DC7B4E"
               : `linear-gradient(90.01deg, #6B6B6B ${
                   (currentDate / FARM_LIMIT) * 100 - 0.01
@@ -106,10 +117,14 @@ export function ProgressBar({
         }}
       >
         <p className="farming">
-          {currentDate / FARM_LIMIT < 1 || Number.isNaN(currentDate)
-            ? "Farming "
-            : "Claim +"}
-          {Number.isNaN(currentDate)
+          {currentDate / FARM_LIMIT < 1 ? "Farming " : "Claim +"}
+          {Math.trunc(
+            (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *
+              userInfo?.earnedCoins *
+              1000
+          ) /
+            1000 <
+          0
             ? "0.000"
             : Math.trunc(
                 (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *

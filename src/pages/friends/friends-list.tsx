@@ -21,12 +21,16 @@ export function FriendsListPage() {
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    setCurrentDate(
-      new Date().getTime() -
-        new Date(userInfo?.lastRefClaim || "").getTime() +
-        new Date().getTimezoneOffset() * 60000 +
-        1000
-    );
+    if (isNaN(currentDate)) {
+      setCurrentDate(0);
+    } else {
+      setCurrentDate(
+        new Date().getTime() -
+          new Date(userInfo?.lastRefClaim || "").getTime() +
+          new Date().getTimezoneOffset() * 60000 +
+          1000
+      );
+    }
     const interval = setInterval(() => {
       setCurrentDate(
         new Date().getTime() -
