@@ -19,7 +19,7 @@ export function ProgressBar() {
       setUserInfo(result);
       setCurrentDate(
         new Date().getTime() -
-          new Date(result?.lastRefClaim || "").getTime() +
+          new Date(result?.lastFarmStart || "").getTime() +
           new Date().getTimezoneOffset() * 60000 +
           1000
       );
@@ -29,7 +29,7 @@ export function ProgressBar() {
   useEffect(() => {
     setCurrentDate(
       new Date().getTime() -
-        new Date(userInfo?.lastRefClaim || "").getTime() +
+        new Date(userInfo?.lastFarmStart || "").getTime() +
         new Date().getTimezoneOffset() * 60000 +
         1000
     );
@@ -66,7 +66,7 @@ export function ProgressBar() {
                 setUserInfo(result);
                 setCurrentDate(
                   new Date().getTime() -
-                    new Date(result?.lastRefClaim || "").getTime() +
+                    new Date(result?.lastFarmStart || "").getTime() +
                     new Date().getTimezoneOffset() * 60000 +
                     1000
                 );
