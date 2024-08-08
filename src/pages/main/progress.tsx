@@ -58,11 +58,7 @@ export function ProgressBar({
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
                 setUserInfo(result);
-                setCurrentDate(
-                  new Date(userInfo?.lastFarmStart || "").getTime() +
-                    new Date().getTimezoneOffset() * 60000 +
-                    1000
-                );
+                setCurrentDate(0);
               });
             });
           }}
