@@ -17,11 +17,12 @@ export function ProgressBar({
     new Date().getTime() -
       new Date(userInfo?.lastFarmStart || "").getTime() +
       new Date().getTimezoneOffset() * 60000 +
-      1000
+      1000 || 0
   );
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
+    console.log(userInfo?.lastRefClaim, currentDate);
     setCurrentDate(
       new Date(userInfo?.lastFarmStart || "").getTime() +
         new Date().getTimezoneOffset() * 60000 +

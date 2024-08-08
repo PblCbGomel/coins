@@ -21,7 +21,6 @@ export function FriendsListPage() {
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    console.log(userInfo?.lastRefClaim, currentDate);
     setCurrentDate(
       new Date().getTime() -
         new Date(userInfo?.lastRefClaim || "").getTime() +
