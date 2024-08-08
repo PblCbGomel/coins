@@ -6,13 +6,8 @@ import { UserInfo } from "../../interfaces/user";
 import { FARM_LIMIT } from "../../constants/time-limit";
 import { CoinNotification } from "../../components/coin-notification/coin-notification";
 
-export function ProgressBar({
-  userInfo,
-  setUserInfo,
-}: {
-  userInfo: UserInfo | undefined;
-  setUserInfo: React.Dispatch<React.SetStateAction<UserInfo | undefined>>;
-}) {
+export function ProgressBar() {
+  const [userInfo, setUserInfo] = useState<UserInfo | undefined>();
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() -
       new Date(userInfo?.lastFarmStart || "").getTime() +
@@ -22,34 +17,28 @@ export function ProgressBar({
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    if (isNaN(currentDate) || !userInfo?.lastRefClaim) {
-      setCurrentDate(0);
-    } else {
+    GetFetch({
+      path: "/api/user",
+      query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+    }).then((result) => {
+      setUserInfo(result);
+    });
+  }, []);
+
+  useEffect(() => {
+    setCurrentDate(
+      new Date().getTime() -
+        new Date(userInfo?.lastRefClaim || "").getTime() +
+        new Date().getTimezoneOffset() * 60000 +
+        1000
+    );
+    const interval = setInterval(() => {
       setCurrentDate(
         new Date().getTime() -
-          new Date(userInfo?.lastRefClaim || "").getTime() +
+          new Date(userInfo?.lastFarmStart || "").getTime() +
           new Date().getTimezoneOffset() * 60000 +
           1000
       );
-    }
-    const interval = setInterval(() => {
-      if (
-        isNaN(
-          new Date().getTime() -
-            new Date(userInfo?.lastFarmStart || "").getTime() +
-            new Date().getTimezoneOffset() * 60000 +
-            1000
-        )
-      ) {
-        setCurrentDate(0);
-      } else {
-        setCurrentDate(
-          new Date().getTime() -
-            new Date(userInfo?.lastFarmStart || "").getTime() +
-            new Date().getTimezoneOffset() * 60000 +
-            1000
-        );
-      }
     }, 1000);
     return () => {
       clearInterval(interval);
