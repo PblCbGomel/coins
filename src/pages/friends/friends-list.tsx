@@ -24,13 +24,15 @@ export function FriendsListPage() {
     setCurrentDate(
       new Date().getTime() -
         new Date(userInfo?.lastRefClaim || "").getTime() +
-        new Date().getTimezoneOffset() * 60000
+        new Date().getTimezoneOffset() * 60000 +
+        1000
     );
     const interval = setInterval(() => {
       setCurrentDate(
         new Date().getTime() -
           new Date(userInfo?.lastRefClaim || "").getTime() +
-          new Date().getTimezoneOffset() * 60000
+          new Date().getTimezoneOffset() * 60000 +
+          1000
       );
     }, 5000);
     return () => {
@@ -139,7 +141,7 @@ export function FriendsListPage() {
                     new Date(REF_LIMIT - currentDate).getHours() +
                     new Date().getTimezoneOffset() / 60
                   }h ${new Date(
-                    Math.ceil((REF_LIMIT - currentDate) / 60000) * 60000
+                    Math.ceil((REF_LIMIT - currentDate) / 60000) * 60000 + 1000
                   ).getMinutes()}m`
                 : "Claim"}
             </button>
