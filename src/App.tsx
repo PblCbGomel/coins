@@ -68,7 +68,7 @@ function App() {
                   path=""
                   element={
                     user && user?.refCount > 0 ? (
-                      <Navigate to="list-fiends" replace />
+                      <Navigate to="/friends/list-fiends" replace />
                     ) : (
                       <FriendsPage />
                     )
