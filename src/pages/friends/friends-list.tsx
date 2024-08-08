@@ -21,28 +21,6 @@ export function FriendsListPage() {
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    console.log(currentDate);
-    setCurrentDate(
-      new Date().getTime() -
-        new Date(userInfo?.lastRefClaim || "").getTime() +
-        new Date().getTimezoneOffset() * 60000 +
-        1000
-    );
-
-    const interval = setInterval(() => {
-      setCurrentDate(
-        new Date().getTime() -
-          new Date(userInfo?.lastRefClaim || "").getTime() +
-          new Date().getTimezoneOffset() * 60000 +
-          1000
-      );
-    }, 5000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [userInfo]);
-
-  useEffect(() => {
     GetFetch({
       path: "/api/getReferrals",
       query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
@@ -67,6 +45,12 @@ export function FriendsListPage() {
         query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
       }).then((result) => {
         setFriends(result);
+      });
+      GetFetch({
+        path: "/api/user",
+        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
+      }).then((result) => {
+        setUserInfo(result);
         setCurrentDate(
           new Date().getTime() -
             new Date(result?.lastRefClaim || "").getTime() +
@@ -74,17 +58,25 @@ export function FriendsListPage() {
             1000
         );
       });
-      GetFetch({
-        path: "/api/user",
-        query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-      }).then((result) => {
-        setUserInfo(result);
-      });
     }, 60000);
     return () => {
       clearInterval(interval);
     };
   }, [leftFrinedsCount]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDate(
+        new Date().getTime() -
+          new Date(userInfo?.lastRefClaim || "").getTime() +
+          new Date().getTimezoneOffset() * 60000 +
+          1000
+      );
+    }, 5000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [userInfo]);
 
   return (
     <>
