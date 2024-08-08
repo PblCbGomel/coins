@@ -64,6 +64,11 @@ function App() {
               path="friends"
               children={[
                 <Route
+                  key={"list-fiends"}
+                  path="list"
+                  element={<FriendsListPage />}
+                />,
+                <Route
                   key={"main-fiends"}
                   path=""
                   element={
@@ -73,11 +78,6 @@ function App() {
                       <FriendsPage />
                     )
                   }
-                />,
-                <Route
-                  key={"list-fiends"}
-                  path="list"
-                  element={<FriendsListPage />}
                 />,
               ]}
             />
