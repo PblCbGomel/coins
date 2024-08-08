@@ -17,16 +17,15 @@ export function ProgressBar({
     new Date().getTime() -
       new Date(userInfo?.lastFarmStart || "").getTime() +
       new Date().getTimezoneOffset() * 60000 +
-      1000 || 0
+      1000
   );
   const [notificationCoins, setNotificationCoins] = useState(0);
 
   useEffect(() => {
-    console.log(userInfo?.lastRefClaim, currentDate);
     setCurrentDate(
       new Date(userInfo?.lastFarmStart || "").getTime() +
         new Date().getTimezoneOffset() * 60000 +
-        1000 || 0
+        1000
     );
     const interval = setInterval(() => {
       setCurrentDate(
@@ -108,13 +107,7 @@ export function ProgressBar({
       >
         <p className="farming">
           {currentDate / FARM_LIMIT < 1 ? "Farming " : "Claim +"}
-          {Math.trunc(
-            (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *
-              userInfo?.earnedCoins *
-              1000
-          ) /
-            1000 <
-          0
+          {!Number.isNaN(currentDate)
             ? "0.000"
             : Math.trunc(
                 (currentDate / FARM_LIMIT > 1 ? 1 : currentDate / FARM_LIMIT) *

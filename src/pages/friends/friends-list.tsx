@@ -16,7 +16,7 @@ export function FriendsListPage() {
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() -
       new Date(userInfo?.lastRefClaim || "").getTime() +
-      new Date().getTimezoneOffset() * 60000 || 0
+      new Date().getTimezoneOffset() * 60000
   );
   const [notificationCoins, setNotificationCoins] = useState(0);
 
