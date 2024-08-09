@@ -23,16 +23,17 @@ export function ModalButtons({
       ></div>
       <div className="modal-btns-wrapper">
         <h4>Invite friends</h4>
-        <a
-          href={`https://telegram.me/share/url?url=https://t.me/coinstest1123bot?start=${
-            user?.tgId || "123456789"
-          }&text=Share referral link`}
+        <button
+          className="send-invite-btn"
+          onClick={() => {
+            location.href = `https://telegram.me/share/url?url=https://t.me/coinstest1123bot?start=${
+              user?.tgId || "123456789"
+            }`;
+          }}
         >
-          <button className="send-invite-btn">
-            <img src={"../icons/send.png"} width={13} height={12} alt="send" />
-            <p>Send invite</p>
-          </button>
-        </a>
+          <img src={"../icons/send.png"} width={13} height={12} alt="send" />
+          <p>Send invite</p>
+        </button>
         <button
           className="copy-link-btn"
           onClick={() => {
