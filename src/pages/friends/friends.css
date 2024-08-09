@@ -59,8 +59,8 @@
 .friends-claim-btn {
   border: none;
   outline: inherit;
-  background-color: #f6f6f6;
-  color: #ffffff;
+  color: #aeaeae;
+  background-color: #e3e3e3;
   font-weight: 500;
   width: 158px;
   height: 44px;
@@ -170,7 +170,7 @@
   justify-content: center;
   width: 95%;
   height: 55px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .invite-friend-btn:active {
