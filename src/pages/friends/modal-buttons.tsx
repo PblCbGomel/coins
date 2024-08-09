@@ -23,21 +23,16 @@ export function ModalButtons({
       ></div>
       <div className="modal-btns-wrapper">
         <h4>Invite friends</h4>
-        <button
-          className="send-invite-btn"
-          onClick={() => {
-            navigator.share({
-              title: "Share referral link",
-              text: "Share referral link",
-              url: `https://t.me/coinstest1123bot?start=${
-                user?.tgId || "123456789"
-              }`,
-            });
-          }}
+        <a
+          href={`https://telegram.me/share/url?url=https://t.me/coinstest1123bot?start=${
+            user?.tgId || "123456789"
+          }&text=Share referral link`}
         >
-          <img src={"../icons/send.png"} width={13} height={12} alt="send" />
-          <p>Send invite</p>
-        </button>
+          <button className="send-invite-btn">
+            <img src={"../icons/send.png"} width={13} height={12} alt="send" />
+            <p>Send invite</p>
+          </button>
+        </a>
         <button
           className="copy-link-btn"
           onClick={() => {
