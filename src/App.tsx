@@ -62,7 +62,7 @@ function App() {
           notifText: (text: string) => {
             setNotifText(text);
             setTimeout(() => {
-              setNotifText(text);
+              setNotifText("");
             }, 3400);
           },
         }}

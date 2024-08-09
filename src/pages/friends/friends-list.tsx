@@ -148,11 +148,13 @@ export function FriendsListPage() {
                 }
               }}
               style={
-                currentDate / REF_LIMIT >= 1 && user && user?.coinsFromRefs > 0
-                  ? {
-                      backgroundColor: "#DC7B4E",
-                      width: "78px",
-                    }
+                currentDate / REF_LIMIT >= 1 && user
+                  ? user?.coinsFromRefs > 0
+                    ? {
+                        backgroundColor: "#DC7B4E",
+                        width: "78px",
+                      }
+                    : { width: "78px" }
                   : {}
               }
             >
