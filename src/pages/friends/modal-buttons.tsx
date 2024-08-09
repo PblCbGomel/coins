@@ -1,7 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import "./modal.css";
 import { UserContext, tg } from "../../App";
-import { PatchFetch } from "../../functions/fetch";
 import { useContext } from "react";
 
 export function ModalButtons({
@@ -11,7 +9,6 @@ export function ModalButtons({
   setIsModalButtonsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   isModalButtonsOpened: boolean;
 }) {
-  const navigate = useNavigate();
   const { user, notifText } = useContext(UserContext);
 
   return (
@@ -33,7 +30,7 @@ export function ModalButtons({
               title: "Share referral link",
               text: "Share referral link",
               url: `https://t.me/coinstest1123bot?start=${
-                tg?.initDataUnsafe?.user?.id || "123456789"
+                user?.tgId || "123456789"
               }`,
             });
           }}
