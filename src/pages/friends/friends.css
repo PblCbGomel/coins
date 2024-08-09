@@ -42,8 +42,10 @@
 .friends-coins p {
   font-size: 24px;
   height: 28px;
+  line-height: 28px;
   font-weight: 700;
   color: #272727;
+  vertical-align: middle;
 }
 
 .friends-coins-text {
@@ -178,7 +180,7 @@
 
 .friends-coins-ticket-wrapper {
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: center;
   height: 40px;
 }
