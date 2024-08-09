@@ -12,7 +12,7 @@ export function ModalButtons({
   isModalButtonsOpened: boolean;
 }) {
   const navigate = useNavigate();
-  const { user, setNotifText } = useContext(UserContext);
+  const { user, notifText } = useContext(UserContext);
 
   return (
     <>
@@ -42,7 +42,7 @@ export function ModalButtons({
         <button
           className="copy-link-btn"
           onClick={() => {
-            setNotifText("Referral link copied");
+            notifText("Referral link copied");
             navigator.clipboard.writeText(
               `https://t.me/coinstest1123bot?start=${
                 tg?.initDataUnsafe?.user?.id || "123456789"

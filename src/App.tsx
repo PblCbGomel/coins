@@ -18,12 +18,12 @@ export const UserContext = createContext<{
   user: UserInfo | undefined;
   setUser: React.Dispatch<React.SetStateAction<UserInfo | undefined>>;
   changeCoinNotif: Function;
-  setNotifText: Function;
+  notifText: Function;
 }>({
   user: undefined,
   setUser: () => {},
   changeCoinNotif: () => {},
-  setNotifText: () => {},
+  notifText: () => {},
 });
 
 export const tg = window.Telegram.WebApp;
@@ -59,7 +59,7 @@ function App() {
               setIsCoinsNotif(false);
             }, 3400);
           },
-          setNotifText: (text: string) => {
+          notifText: (text: string) => {
             setNotifText(text);
             setTimeout(() => {
               setNotifText(text);
