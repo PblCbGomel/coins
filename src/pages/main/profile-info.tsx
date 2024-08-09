@@ -4,7 +4,7 @@ import { Avatar } from "../../components/avatar/avatar";
 import { useContext } from "react";
 
 export function ProfileInfo() {
-  const { user } = useContext(UserContext);
+  const { user, setNotifText } = useContext(UserContext);
   return (
     <div className="profile-info">
       <div className="profile-tg-info">
@@ -18,6 +18,7 @@ export function ProfileInfo() {
             <img
               src="../icons/copy.svg"
               onClick={() => {
+                setNotifText("Your id has been copied");
                 navigator.clipboard.writeText(
                   tg?.initDataUnsafe?.user?.id || "123456789"
                 );

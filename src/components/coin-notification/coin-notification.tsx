@@ -5,7 +5,7 @@ import { UserContext } from "../../App";
 export function CoinNotification() {
   const { user } = useContext(UserContext);
   return (
-    <div className={`notification`}>
+    <div className={`notification-coins`}>
       <img src="../icons/notif.svg" />
       <p>You Got +{user?.earnedCoins} Peak Points</p>
     </div>

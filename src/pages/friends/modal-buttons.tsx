@@ -12,7 +12,7 @@ export function ModalButtons({
   isModalButtonsOpened: boolean;
 }) {
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
+  const { user, setNotifText } = useContext(UserContext);
 
   return (
     <>
@@ -29,14 +29,11 @@ export function ModalButtons({
         <button
           className="send-invite-btn"
           onClick={() => {
-            setIsModalButtonsOpened(false);
-            PatchFetch({
-              path: "/api/reflink",
-              query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
-            });
-            if (user && user.refCount > 0) {
-              navigate("/friends/list");
-            }
+            navigate(
+              `https://telegram.me/share/url?url=&text=https://t.me/coinstest1123bot?start=${
+                tg?.initDataUnsafe?.user?.id || "123456789"
+              }`
+            );
           }}
         >
           <img src={"../icons/send.png"} width={13} height={12} alt="send" />
@@ -45,6 +42,7 @@ export function ModalButtons({
         <button
           className="copy-link-btn"
           onClick={() => {
+            setNotifText("Referral link copied");
             navigator.clipboard.writeText(
               `https://t.me/coinstest1123bot?start=${
                 tg?.initDataUnsafe?.user?.id || "123456789"
