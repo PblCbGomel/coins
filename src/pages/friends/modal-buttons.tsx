@@ -26,7 +26,7 @@ export function ModalButtons({
         <button
           className="send-invite-btn"
           onClick={() => {
-            location.href = `https://telegram.me/share/url?url=https://t.me/coinstest1123bot?start=${
+            window.location.href = `https://telegram.me/share/url?url=https://t.me/coinstest1123bot?start=${
               user?.tgId || "123456789"
             }`;
           }}
