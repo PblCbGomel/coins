@@ -30,9 +30,9 @@ export function ModalButtons({
           className="send-invite-btn"
           onClick={() => {
             navigate(
-              `https://telegram.me/share/url?url=&text=https://t.me/coinstest1123bot?start=${
+              `https://telegram.me/share/url?url=&text="https://t.me/coinstest1123bot?start=${
                 tg?.initDataUnsafe?.user?.id || "123456789"
-              }`
+              }"`
             );
           }}
         >
