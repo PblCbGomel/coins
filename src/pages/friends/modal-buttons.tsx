@@ -29,11 +29,13 @@ export function ModalButtons({
         <button
           className="send-invite-btn"
           onClick={() => {
-            navigate(
-              `https://telegram.me/share/url?url=https://t.me/coinstest1123bot?start=${
+            navigator.share({
+              title: "Share referral link",
+              text: "Share referral link",
+              url: `https://telegram.me/share/url?url=https://t.me/coinstest1123bot?start=${
                 tg?.initDataUnsafe?.user?.id || "123456789"
-              }&text=`
-            );
+              }&text=`,
+            });
           }}
         >
           <img src={"../icons/send.png"} width={13} height={12} alt="send" />
