@@ -32,9 +32,9 @@ export function ModalButtons({
             navigator.share({
               title: "Share referral link",
               text: "Share referral link",
-              url: `https://telegram.me/share/url?url=https://t.me/coinstest1123bot?start=${
+              url: `https://t.me/coinstest1123bot?start=${
                 tg?.initDataUnsafe?.user?.id || "123456789"
-              }&text=`,
+              }`,
             });
           }}
         >
