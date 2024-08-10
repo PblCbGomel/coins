@@ -43,6 +43,7 @@ export function ModalButtons({
                 tg?.initDataUnsafe?.user?.id || "123456789"
               }`
             );
+            setIsModalButtonsOpened(false);
           }}
         >
           <img src={"../icons/copy.png"} width={13} height={15} alt="copy" />
