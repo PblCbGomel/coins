@@ -153,6 +153,7 @@ export function FriendsListPage() {
                   ? user?.coinsFromRefs > 0
                     ? {
                         backgroundColor: "#DC7B4E",
+                        color: "white",
                         width: "78px",
                       }
                     : { width: "78px" }
