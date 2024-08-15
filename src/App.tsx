@@ -54,7 +54,7 @@ function App() {
           user,
           setUser,
           changeCoinNotif: () => {
-            setIsCoinsNotif(true);
+            setIsCoinsNotif(!isCoinsNotif);
             setTimeout(() => {
               setIsCoinsNotif(false);
             }, 3400);
