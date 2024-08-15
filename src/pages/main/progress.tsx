@@ -39,7 +39,7 @@ export function ProgressBar() {
         <div
           className="bar"
           onClick={() => {
-            changeCoinNotif();
+            changeCoinNotif(false);
             PatchFetch({
               path: "/api/farmStart",
               query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
@@ -92,7 +92,7 @@ export function ProgressBar() {
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
                 setUser(result);
-                changeCoinNotif();
+                changeCoinNotif(true);
               });
             });
           }
