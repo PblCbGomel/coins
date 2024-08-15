@@ -6,12 +6,13 @@ import { GetFetch, PatchFetch } from "../../functions/fetch";
 import { UserContext, tg } from "../../App";
 import { UserInfo } from "../../interfaces/user";
 import { REF_LIMIT } from "../../constants/time-limit";
+import { Loading } from "../../components/loading/loading";
 
 export function FriendsListPage() {
   const [leftFrinedsCount, setLeftFriendsCount] = useState(10);
   const [isModalButtonsOpened, setIsModalButtonsOpened] = useState(false);
-  const [friends, setFriends] = useState<UserInfo[] | undefined>([]);
-  const { user, setUser, changeCoinNotif } = useContext(UserContext);
+  const [friends, setFriends] = useState<UserInfo[] | undefined>();
+  const { user, setUser, notifText } = useContext(UserContext);
   const [currentDate, setCurrentDate] = useState(
     new Date().getTime() -
       new Date(user?.lastRefClaim || "").getTime() +
@@ -134,7 +135,7 @@ export function FriendsListPage() {
                       },
                     }).then((result) => {
                       setUser(result);
-                      changeCoinNotif();
+                      notifText(`You Got +${user?.coinsFromRefs} Peak Points`);
                       if (result?.lastRefClaim) {
                         setCurrentDate(
                           new Date().getTime() -
@@ -171,18 +172,25 @@ export function FriendsListPage() {
           </div>
 
           <div className="friends-count-header">
-            <h3>{friends?.length} friends</h3>
+            <h3>
+              {friends?.length ? friends.length : <Loading size="24px" />}{" "}
+              friends
+            </h3>
           </div>
-          {friends?.map((friend, i) => {
-            return (
-              <FriendCard
-                key={friend.tgId}
-                nickname={friend.name}
-                coins={friend.coins}
-                refCount={friend.refCount}
-              />
-            );
-          })}
+          {friends ? (
+            friends?.map((friend, i) => {
+              return (
+                <FriendCard
+                  key={friend.tgId}
+                  nickname={friend.name}
+                  coins={friend.coins}
+                  refCount={friend.refCount}
+                />
+              );
+            })
+          ) : (
+            <Loading size="48px" />
+          )}
         </div>
         <div className="invite-btn-wrapper">
           <button

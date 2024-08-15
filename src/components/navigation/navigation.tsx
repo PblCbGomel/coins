@@ -4,7 +4,7 @@ import "./navigation.css";
 const Routing = [
   { icon: "../navigation/home.svg", text: "Home", url: "/main" },
   // { icon: "../navigation/upgrade.svg", text: "Upgrade", url: "/upgrades" },
-  { icon: "../navigation/road.png", text: "Road", url: "/road" },
+  // { icon: "../navigation/road.png", text: "Road", url: "/road" },
   { icon: "../navigation/tasks.svg", text: "Tasks", url: "/tasks" },
   { icon: "../navigation/friends.svg", text: "Friends", url: "/friends" },
 ];
