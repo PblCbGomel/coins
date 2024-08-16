@@ -93,11 +93,12 @@ export function ProgressBar() {
               }).then((result) => {
                 const interval = setInterval(() => {
                   setUser({ ...result, coins: ++user.coins });
+
+                  if (user.coins === result.coins) {
+                    clearInterval(interval);
+                    setUser(result);
+                  }
                 }, 1000 / result.coins);
-                if (user.coins + 1 === result.coins) {
-                  clearInterval(interval);
-                  setUser(result);
-                }
 
                 changeCoinNotif(true);
               });
