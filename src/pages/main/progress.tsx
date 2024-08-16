@@ -93,7 +93,7 @@ export function ProgressBar() {
               }).then((result) => {
                 const interval = setInterval(() => {
                   setUser({ ...result, coins: user.coins + 1 });
-                });
+                }, 1000 / result.coins);
                 if (user.coins + 1 === result.coins) {
                   clearInterval(interval);
                 }
