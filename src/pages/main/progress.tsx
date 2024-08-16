@@ -91,7 +91,13 @@ export function ProgressBar() {
                 path: "/api/user",
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
-                setUser(result);
+                const interval = setInterval(() => {
+                  setUser({ ...result, coins: user.coins + 1 });
+                });
+                if (user.coins + 1 === result.coins) {
+                  clearInterval(interval);
+                }
+
                 changeCoinNotif(true);
               });
             });
