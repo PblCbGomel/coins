@@ -92,10 +92,11 @@ export function ProgressBar() {
                 query: { id: tg?.initDataUnsafe?.user?.id || "123456789" },
               }).then((result) => {
                 const interval = setInterval(() => {
-                  setUser({ ...result, coins: user.coins + 1 });
+                  setUser({ ...result, coins: ++user.coins });
                 }, 1000 / result.coins);
                 if (user.coins + 1 === result.coins) {
                   clearInterval(interval);
+                  setUser(result);
                 }
 
                 changeCoinNotif(true);
